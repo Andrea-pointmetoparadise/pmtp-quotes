@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Icon of the Seas — Christina Garcia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #75AFB1;
+    --teal-dark: #4F8A8C;
+    --pale-teal: #C4E4E1;
+    --gold: #DAC396;
+    --gold-dark: #B89E6A;
+    --cream: #E9DEC0;
+    --cream-light: #F5EFDF;
+    --paper: #FBF9F4;
+    --paper-pure: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #606060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--teal-dark);
+    padding: 64px 24px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      135deg,
+      transparent,
+      transparent 44px,
+      rgba(255,255,255,0.025) 44px,
+      rgba(255,255,255,0.025) 45px
+    );
+  }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--pale-teal);
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(30px, 5.5vw, 50px);
+    color: var(--paper-pure);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--pale-teal);
+    max-width: 540px;
+    margin: 0 auto 28px;
+    position: relative;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 30px;
+    padding: 7px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cream-light);
+    letter-spacing: 0.03em;
+  }
+
+  /* LAYOUT */
+  .container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 52px 0; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 27px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 30px;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--cream);
+  }
+
+  /* SHIP STATS */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: var(--paper-pure);
+    border: 1px solid var(--cream);
+    border-radius: 10px;
+    padding: 16px 18px;
+    text-align: center;
+  }
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    line-height: 1.3;
+  }
+
+  /* OPTION CARDS */
+  .option-card {
+    background: var(--paper-pure);
+    border: 2px solid var(--cream);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 28px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .option-card.selected {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 4px rgba(117,175,177,0.12);
+  }
+  .option-card:hover { border-color: var(--teal); }
+  .card-img-wrap { position: relative; }
+  .card-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+  .card-sailing-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+  .card-body { padding: 26px 28px; }
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+  .card-radio-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+  }
+  .card-radio-row input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--teal-dark);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .card-cabin-badge {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    background: var(--pale-teal);
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .card-dates {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    padding-left: 32px;
+  }
+
+  /* PORT TIMELINE */
+  .port-timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-bottom: 20px;
+    padding-left: 32px;
+  }
+  .port-stop {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .port-stop .port-name {
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .port-stop .port-name.highlight {
+    color: var(--teal-dark);
+    font-weight: 600;
+  }
+  .port-arrow {
+    color: var(--gold-dark);
+    margin: 0 7px;
+    font-size: 11px;
+  }
+
+  .card-desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  /* PORT DETAIL CARDS */
+  .port-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .port-card {
+    background: var(--cream-light);
+    border-radius: 9px;
+    padding: 14px 16px;
+  }
+  .port-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .port-card-detail {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* PRICING ROWS */
+  .price-breakdown {
+    background: var(--paper);
+    border: 1px solid var(--cream);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--cream-light);
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-row.total {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+  .price-row.obc { color: var(--gold-dark); font-weight: 500; }
+  .price-row-label { font-weight: 500; }
+  .deposit-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--pale-teal);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .deposit-row-label { font-weight: 600; color: var(--teal-dark); }
+  .deposit-row-due { font-size: 13px; color: var(--ink-soft); }
+
+  /* STICKY TOTAL */
+  .total-bar {
+    position: sticky;
+    bottom: 0;
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    border-top: 2px solid var(--teal);
+  }
+  .total-label { font-size: 13px; font-weight: 500; opacity: 0.8; }
+  .total-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .total-right { text-align: right; }
+  .total-deposit { font-size: 12px; opacity: 0.7; margin-top: 2px; }
+
+  /* WHAT YOUR SHIP HAS */
+  .amenity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .amenity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .amenity-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold-dark);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* TRANSPARENCY BOX */
+  .transparency-box {
+    background: var(--cream-light);
+    border-left: 3px solid var(--gold-dark);
+    border-radius: 0 8px 8px 0;
+    padding: 22px 26px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+  }
+  .deposit-pill {
+    display: inline-block;
+    background: var(--pale-teal);
+    color: var(--teal-dark);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 18px;
+    border-radius: 30px;
+    margin-top: 16px;
+  }
+
+  /* FORM */
+  .form-section {
+    background: var(--paper-pure);
+    border: 1px solid var(--cream);
+    border-radius: 14px;
+    padding: 38px 34px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 540px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-section { padding: 24px 18px; }
+    .card-body { padding: 20px 18px; }
+    .card-dates { padding-left: 0; }
+    .port-timeline { padding-left: 0; }
+    .total-bar { flex-direction: column; gap: 4px; text-align: center; }
+    .hero { padding: 48px 18px 44px; }
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--cream);
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--ink);
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+  }
+  textarea { resize: vertical; min-height: 90px; }
+  .submit-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    border: none;
+    border-radius: 8px;
+    padding: 15px 36px;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--teal); }
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--teal-dark);
+  }
+  .form-success h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--teal-dark);
+    color: var(--cream-light);
+    padding: 44px 24px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-agent { font-size: 15px; margin-bottom: 6px; }
+  .footer-contact { font-size: 14px; color: var(--pale-teal); margin-bottom: 4px; }
+  .footer-contact a { color: var(--pale-teal); text-decoration: none; }
+  .footer-disclaimer {
+    font-size: 12px;
+    max-width: 580px;
+    margin: 24px auto 0;
+    line-height: 1.65;
+    color: rgba(196,228,225,0.45);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">A quote prepared for</div>
+  <h1>Christina Garcia</h1>
+  <p class="hero-sub">Two sailings on Icon of the Seas — the world's largest ship — both from the Gulf Coast. Pick the one that fits your calendar.</p>
+  <div class="hero-badges">
+    <div class="hero-badge">Icon of the Seas</div>
+    <div class="hero-badge">Royal Caribbean</div>
+    <div class="hero-badge">Ocean View Balcony</div>
+    <div class="hero-badge">Summer 2027</div>
+  </div>
+</div>
+
+<!-- ABOUT THE SHIP -->
+<div class="container">
+  <div class="section">
+    <div class="section-title">The ship</div>
+    <p class="section-sub">Icon of the Seas — what you're actually getting on</p>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Status</div>
+        <div class="stat-value">World's Largest Cruise Ship</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Launched</div>
+        <div class="stat-value">January 2024</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pools</div>
+        <div class="stat-value">7 pools + 9 whirlpools</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Dining</div>
+        <div class="stat-value">40+ restaurants & bars</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Neighborhoods</div>
+        <div class="stat-value">8 distinct areas onboard</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Homeport (2027)</div>
+        <div class="stat-value">Galveston, Texas</div>
+      </div>
+    </div>
+    <p style="font-size:15px; color:var(--ink-soft); line-height:1.75; margin-bottom:20px;">Icon of the Seas isn't a cruise ship that happens to have amenities — it's a destination that happens to move. The Category 6 waterpark has six slides, including the tallest waterslide at sea. The Hideaway is an adults-only pool deck with a swim-up bar. Crown's Edge is a sky walk that hangs off the side of the ship, 150 feet above the water. The aqua theater puts on full productions over the ocean. Dinner options include a Japanese steakhouse, a seafood restaurant, a supper club, and Windjammer when you just want to pile a plate and sit down.</p>
+    <div class="amenity-grid">
+      <div class="amenity-item"><div class="amenity-dot"></div>Crown's Edge sky walk (150 ft above the sea)</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Category 6 waterpark — 6 slides</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Flowrider surf simulator</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Ice skating rink</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Swim & Tonic swim-up bar (first in the fleet)</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>AquaTheater open-air shows</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Vitality Spa + full fitness center</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Bumper cars, escape rooms, rock climbing</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SAILING OPTIONS -->
+<div class="container">
+  <div class="section">
+    <div class="section-title">Your two options</div>
+    <p class="section-sub">Same ship, same cabin category — different itineraries and dates. Select the one you want.</p>
+
+    <!-- OPTION 1: AUG 7 -->
+    <div class="option-card" id="card-1" onclick="selectOption(1)">
+      <div class="card-img-wrap">
+        <img class="card-img" src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=900&q=80" alt="Curacao colorful waterfront">
+        <div class="card-sailing-badge">Option 1 — Aug 7</div>
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-radio-row">
+            <input type="radio" name="sailing" id="opt1"
+              value="Option 1 – Aug 7, 2027 – 9-Night Miami to Galveston – $7,441.66"
+              onclick="setTimeout(updateTotal,0)">
+            <div class="card-title">9-Night Miami → Galveston<br><span style="font-size:17px; font-weight:400; font-style:italic; font-family:'Cormorant Garamond',serif;">The Repositioning Voyage</span></div>
+          </div>
+          <div class="card-cabin-badge">Ocean View Balcony</div>
+        </div>
+        <div class="card-dates">August 7–16, 2027 · Departs Miami · Arrives Galveston</div>
+
+        <div class="port-timeline">
+          <div class="port-stop"><span class="port-name">Miami</span></div>
+          <div class="port-arrow">›</div>
+          <div class="port-stop"><span class="port-name highlight">Perfect Day at CocoCay</span></div>
+          <div class="port-arrow">›</div>
+          <div class="port-stop"><span class="port-name highlight">Curaçao</span></div>
+          <div class="port-arrow">›</div>
+          <div class="port-stop"><span class="port-name highlight">Aruba</span></div>
+          <div class="port-arrow">›</div>
+          <div class="port-stop"><span class="port-name">Galveston</span></div>
+        </div>
+
+        <p class="card-desc">This sailing only happens once — ever. Icon of the Seas makes her one-time repositioning run from Miami to her new home in Galveston, and she's routing through Curaçao and Aruba to make the journey worth it. These aren't ports that show up on typical Galveston itineraries. Curaçao's Willemstad is one of the most photographed waterfronts in the Caribbean — Dutch colonial buildings in pinks, blues, and yellows reflected in the harbor. Aruba's Eagle Beach is consistently ranked among the best beaches in the world: flat water, white sand, no seaweed, negligible rain. You won't get this combination again from Texas.</p>
+
+        <div class="port-cards">
+          <div class="port-card">
+            <div class="port-card-name">Perfect Day at CocoCay</div>
+            <div class="port-card-detail">Royal Caribbean's private island — Thrill Waterpark, lagoon beach, swim-up bar, floating bar in the ocean</div>
+          </div>
+          <div class="port-card">
+            <div class="port-card-name">Curaçao</div>
+            <div class="port-card-detail">Willemstad's UNESCO waterfront, floating market, some of the Caribbean's best reef diving, and the oldest synagogue in the Americas</div>
+          </div>
+          <div class="port-card">
+            <div class="port-card-name">Aruba</div>
+            <div class="port-card-detail">Eagle Beach (world top-10), consistent trade winds, Arikok National Park, virtually zero hurricane risk</div>
+          </div>
+        </div>
+
+        <div class="price-breakdown">
+          <div class="price-row"><span class="price-row-label">Cruise fare (Ocean View Balcony)</span><span>$7,108.66</span></div>
+          <div class="price-row"><span class="price-row-label">Pre-paid gratuities</span><span>$333.00</span></div>
+          <div class="price-row obc"><span class="price-row-label">Onboard credit included</span><span>+$50.00 OBC</span></div>
+          <div class="price-row total"><span>Grand Total</span><span>$7,441.66</span></div>
+        </div>
+        <div class="deposit-row">
+          <span class="deposit-row-label">Deposit to hold: $500.00</span>
+          <span class="deposit-row-due">Due by May 3, 2026 · Balance due May 9, 2027</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION 2: AUG 28 -->
+    <div class="option-card" id="card-2" onclick="selectOption(2)">
+      <div class="card-img-wrap">
+        <img class="card-img" src="https://images.unsplash.com/photo-1518638150340-f706e86654de?w=900&q=80" alt="Roatan Honduras beach">
+        <div class="card-sailing-badge">Option 2 — Aug 28</div>
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-radio-row">
+            <input type="radio" name="sailing" id="opt2"
+              value="Option 2 – Aug 28, 2027 – 8-Night Western Caribbean from Galveston – $5,412.86"
+              onclick="setTimeout(updateTotal,0)">
+            <div class="card-title">8-Night Western Caribbean<br><span style="font-size:17px; font-weight:400; font-style:italic; font-family:'Cormorant Garamond',serif;">Round-Trip from Galveston</span></div>
+          </div>
+          <div class="card-cabin-badge">Ocean View Balcony</div>
+        </div>
+        <div class="card-dates">August 28 – September 5, 2027 · Round-trip from Galveston, TX</div>
+
+        <div class="port-timeline">
+          <div class="port-stop"><span class="port-name">Galveston</span></div>
+          <div class="port-arrow">›</div>
+          <div class="port-stop"><span class="port-name highlight">Cozumel</span></div>
+          <div class="port-arrow">›</div>
+          <div class="port-stop"><span class="port-name highlight">Costa Maya</span></div>
+          <div class="port-arrow">›</div>
+          <div class="port-stop"><span class="port-name highlight">Roatán</span></div>
+          <div class="port-arrow">›</div>
+          <div class="port-stop"><span class="port-name highlight">Perfect Day at CocoCay</span></div>
+          <div class="port-arrow">›</div>
+          <div class="port-stop"><span class="port-name">Galveston</span></div>
+        </div>
+
+        <p class="card-desc">Icon's first group of 8-night sailings from Galveston, and one of only six on the schedule. The Western Caribbean routing is the standard Texas itinerary — but on a ship that makes everything else on the Gulf feel like a warmup. Cozumel's reef system is one of the top dive destinations in the world; even a snorkel excursion puts you over coral formations that take a minute to process. Roatán's West Bay Beach is legitimately great — calm, clear, palm-lined, with easy access to the Mesoamerican Barrier Reef. Costa Maya is the quieter port day: a relaxed beach club environment, no cruise ship crowds spilling into a town, easy to unplug. CocoCay rounds it out.</p>
+
+        <div class="port-cards">
+          <div class="port-card">
+            <div class="port-card-name">Cozumel, Mexico</div>
+            <div class="port-card-detail">Mesoamerican Barrier Reef snorkeling and diving, Royal Beach Club Cozumel (opening 2026), Punta Sur eco-park</div>
+          </div>
+          <div class="port-card">
+            <div class="port-card-name">Costa Maya, Mexico</div>
+            <div class="port-card-detail">Private beach club atmosphere, Mayan ruins at Chacchoben nearby, calm and uncrowded compared to Cozumel</div>
+          </div>
+          <div class="port-card">
+            <div class="port-card-name">Roatán, Honduras</div>
+            <div class="port-card-detail">West Bay Beach, barrier reef diving, zip lines over the jungle canopy, less-touristed than most Caribbean ports</div>
+          </div>
+          <div class="port-card">
+            <div class="port-card-name">Perfect Day at CocoCay</div>
+            <div class="port-card-detail">Royal Caribbean's private island — Thrill Waterpark, lagoon beach, swim-up bar, floating bar in the ocean</div>
+          </div>
+        </div>
+
+        <div class="price-breakdown">
+          <div class="price-row"><span class="price-row-label">Cruise fare (Ocean View Balcony)</span><span>$5,116.86</span></div>
+          <div class="price-row"><span class="price-row-label">Pre-paid gratuities</span><span>$296.00</span></div>
+          <div class="price-row obc"><span class="price-row-label">Onboard credit included</span><span>+$50.00 OBC</span></div>
+          <div class="price-row total"><span>Grand Total</span><span>$5,412.86</span></div>
+        </div>
+        <div class="deposit-row">
+          <span class="deposit-row-label">Deposit to hold: $500.00</span>
+          <span class="deposit-row-due">Due by May 5, 2026 · Balance due before departure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY TOTAL -->
+<div class="total-bar" id="totalBar">
+  <div>
+    <div class="total-label">Selected sailing total</div>
+    <div class="total-amount" id="totalAmount">Select a sailing above</div>
+  </div>
+  <div class="total-right" id="totalRight"></div>
+</div>
+
+<hr class="divider">
+
+<!-- WHAT YOUR CABIN INCLUDES -->
+<div class="container">
+  <div class="section">
+    <div class="section-title">Your cabin — Ocean View Balcony</div>
+    <p class="section-sub">What's included in both options</p>
+    <p style="font-size:15px; color:var(--ink-soft); line-height:1.75; margin-bottom:20px;">The Ocean View Balcony on Icon gives you a private outdoor space wide enough for two chairs and a small table — which matters most on sea days and port approaches. Waking up to Curaçao's colored waterfront or Aruba's coastline through floor-to-ceiling glass is genuinely different from watching it from a hallway porthole. The balcony faces outward, so you get full horizon views rather than the interior atrium. Beds convert between king and twins on request. Midship placement on the main cabin decks keeps motion minimal and the walk to everything short.</p>
+    <div class="amenity-grid">
+      <div class="amenity-item"><div class="amenity-dot"></div>Private balcony with seating for two</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Floor-to-ceiling sliding glass door</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Royal King bed (converts to twins)</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Full private bathroom</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Sitting area with vanity</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Approx. 182 sq ft + balcony</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Safe, mini-fridge, interactive TV</div>
+      <div class="amenity-item"><div class="amenity-dot"></div>Gratuities pre-paid on both options</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PRICING TRANSPARENCY -->
+<div class="container">
+  <div class="section">
+    <div class="section-title">What you're paying for</div>
+    <div class="transparency-box">
+      Individual components in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for any piece of your trip. What you're paying for is the rest: the right cabin on the right sailing, an advisor who's done the research, and a human who answers when something doesn't go to plan.
+      <br><br>
+      Gratuities are pre-paid on both sailings, so there are no surprise service charge additions at the end of your cruise. The $50 onboard credit applies to both options and can be used toward specialty dining, spa services, shore excursions, or beverages.
+      <div class="deposit-pill">$500 deposit to hold · pay balance closer to travel date</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CONTACT FORM -->
+<div class="container">
+  <div class="section">
+    <div class="section-title">Ready to move forward?</div>
+    <p class="section-sub">Tell me which sailing you want and I'll take it from there</p>
+    <div class="form-section">
+      <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="74894b5d-f463-481b-b081-b874086b15fc">
+        <input type="hidden" name="subject" id="formSubject" value="Quote inquiry – Christina Garcia – Icon of the Seas 2027">
+        <input type="hidden" name="sailing_selected" id="hiddenSailing" value="">
+        <input type="hidden" name="estimated_total" id="hiddenTotal" value="">
+        <input type="hidden" name="quote_client" value="Christina Garcia">
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" name="first_name" placeholder="Christina" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" name="last_name" placeholder="Garcia" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+          </div>
+          <div class="form-group full">
+            <label for="guests">Number of guests</label>
+            <input type="text" id="guests" name="guests" placeholder="e.g. 2 adults">
+          </div>
+          <div class="form-group full">
+            <label for="message">Questions or notes</label>
+            <textarea id="message" name="message" placeholder="Which sailing are you leaning toward? Any questions about the ports, the ship, or next steps?"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">Send my selection to Andrea →</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <h3>Got it — I'll be in touch soon.</h3>
+        <p style="color:var(--ink-soft); font-size:15px;">Check your inbox for a confirmation. I'll follow up within one business day with deposit instructions and next steps.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Point Me to Paradise Travel</div>
+  <div class="footer-agent">Andrea Gunter, Travel Advisor</div>
+  <div class="footer-contact"><a id="emailLink" href="#">Loading…</a></div>
+  <div class="footer-contact">(409) 789-3579</div>
+  <div class="footer-disclaimer">Estimated totals shown are not final. Final pricing is confirmed by your advisor before any booking is made. Individual components are priced at publicly available rates. Onboard credit is non-refundable and non-transferable. Itineraries are subject to change by the cruise line. Prices and availability are subject to change until time of booking.</div>
+</footer>
+
+<script>
+var prices = {
+  1: { total: '$7,441.66', deposit: '$500 due May 3, 2026' },
+  2: { total: '$5,412.86', deposit: '$500 due May 5, 2026' }
+};
+
+function selectOption(n) {
+  document.getElementById('opt' + n).checked = true;
+  document.querySelectorAll('.option-card').forEach(function(c, i) {
+    c.classList.toggle('selected', i + 1 === n);
+  });
+  updateTotal();
+}
+
+function updateTotal() {
+  var selected = document.querySelector('input[name="sailing"]:checked');
+  if (!selected) {
+    document.getElementById('totalAmount').textContent = 'Select a sailing above';
+    document.getElementById('totalRight').innerHTML = '';
+    document.getElementById('hiddenSailing').value = '';
+    document.getElementById('hiddenTotal').value = '';
+    return;
+  }
+  var n = selected.id === 'opt1' ? 1 : 2;
+  var p = prices[n];
+  document.getElementById('totalAmount').textContent = 'Est. ' + p.total;
+  document.getElementById('totalRight').innerHTML = '<div class="total-deposit">' + p.deposit + '</div>';
+  document.getElementById('hiddenSailing').value = selected.value;
+  document.getElementById('hiddenTotal').value = 'Est. ' + p.total;
+  document.getElementById('formSubject').value = 'Quote inquiry – Christina Garcia – Icon of the Seas – ' + selected.value.substring(0, 40);
+}
+
+document.getElementById('quoteForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var data = new FormData(this);
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+    .then(function(r) { return r.json(); })
+    .then(function(res) {
+      if (res.success) {
+        document.getElementById('quoteForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again or contact Andrea directly.');
+      }
+    })
+    .catch(function() {
+      alert('Submission error. Please contact Andrea directly.');
+    });
+});
+
+(function() {
+  var u = 'andrea';
+  var d = 'pointmetoparadise.com';
+  var addr = u + '@' + d;
+  var el = document.getElementById('emailLink');
+  el.href = 'mailto:' + addr;
+  el.textContent = addr;
+})();
+</script>
+</body>
+</html>
