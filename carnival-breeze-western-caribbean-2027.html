@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carnival Breeze — Western Caribbean 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #75AFB1;
+    --teal-dark: #4F8A8C;
+    --pale-teal: #C4E4E1;
+    --gold: #DAC396;
+    --gold-dark: #B89E6A;
+    --cream: #E9DEC0;
+    --cream-light: #F5EFDF;
+    --paper: #FBF9F4;
+    --paper-pure: #FFFFFF;
+    --text: #3D3D3D;
+    --text-muted: #606060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    padding: 56px 24px 40px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--pale-teal);
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 700;
+    color: var(--paper-pure);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--pale-teal);
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+  .itinerary-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 0;
+    border-top: 1px solid rgba(196,228,225,0.3);
+    padding-top: 24px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .itin-stop {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .itin-port {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--pale-teal);
+    padding: 0 10px;
+    text-align: center;
+  }
+  .itin-port span {
+    display: block;
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(196,228,225,0.7);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+  .itin-arrow {
+    color: var(--gold);
+    font-size: 14px;
+    padding: 0 4px;
+  }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* OFFER BANNER */
+  .offer-banner {
+    background: var(--cream);
+    border-left: 4px solid var(--gold-dark);
+    padding: 16px 20px;
+    margin: 32px 0 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .offer-banner strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .offer-banner p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* SECTION HEADING */
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin: 40px 0 8px;
+  }
+  .section-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* CABIN CARDS */
+  .cabin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+  .cabin-card {
+    background: var(--paper-pure);
+    border: 1px solid var(--pale-teal);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .cabin-card:hover {
+    box-shadow: 0 4px 20px rgba(79,138,140,0.15);
+  }
+  .cabin-card.selected {
+    border: 2px solid var(--teal-dark);
+    box-shadow: 0 4px 20px rgba(79,138,140,0.2);
+  }
+  .cabin-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+  }
+  .cabin-img-placeholder {
+    width: 100%;
+    height: 190px;
+    background: linear-gradient(135deg, var(--pale-teal) 0%, var(--cream) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--teal-dark);
+  }
+  .cabin-body {
+    padding: 20px;
+  }
+  .cabin-badge {
+    display: inline-block;
+    background: var(--pale-teal);
+    color: var(--teal-dark);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .cabin-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+  .cabin-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .cabin-price-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-top: 1px solid var(--cream);
+    padding-top: 14px;
+  }
+  .cabin-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--teal-dark);
+  }
+  .cabin-price-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    text-align: right;
+  }
+  .cabin-perk {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--gold-dark);
+    font-weight: 500;
+  }
+  .cabin-perk::before {
+    content: '✦ ';
+    font-size: 10px;
+  }
+
+  .radio-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--cream);
+  }
+  .radio-wrap input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--teal-dark);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .radio-wrap label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  /* ADD-ONS */
+  .addons-section {
+    background: var(--cream-light);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 32px 0;
+  }
+  .addons-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+  .addons-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .addon-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--cream);
+  }
+  .addon-item:last-child { border-bottom: none; }
+  .addon-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--teal-dark);
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+  }
+  .addon-label {
+    flex: 1;
+  }
+  .addon-label strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .addon-label span {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .addon-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* STICKY TOTAL */
+  .sticky-bar {
+    position: sticky;
+    bottom: 0;
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sticky-label {
+    font-size: 14px;
+    color: var(--pale-teal);
+    font-weight: 300;
+  }
+  .sticky-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--paper-pure);
+  }
+  .sticky-note {
+    font-size: 12px;
+    color: var(--pale-teal);
+    font-weight: 300;
+    width: 100%;
+  }
+
+  /* IMPORTANT INFO */
+  .info-box {
+    background: var(--cream-light);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 32px 0;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .info-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 12px;
+  }
+  .info-box ul {
+    padding-left: 18px;
+  }
+  .info-box li {
+    margin-bottom: 6px;
+  }
+
+  /* PRICING PHILOSOPHY */
+  .pricing-note {
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    background: var(--paper-pure);
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0 32px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* CONTACT FORM */
+  .form-section {
+    background: var(--paper-pure);
+    border: 1px solid var(--pale-teal);
+    border-radius: 12px;
+    padding: 32px;
+    margin: 32px 0;
+  }
+  .form-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+  .form-section p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    padding: 12px 14px;
+    border: 1px solid var(--pale-teal);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--text);
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+    min-height: 44px;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--teal-dark);
+  }
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  .form-submit {
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    border: none;
+    border-radius: 6px;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    min-height: 52px;
+    letter-spacing: 0.02em;
+    transition: background 0.2s;
+  }
+  .form-submit:hover {
+    background: var(--teal);
+  }
+  #formSuccess {
+    display: none;
+    text-align: center;
+    padding: 24px;
+    color: var(--teal-dark);
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--teal-dark);
+    color: var(--pale-teal);
+    padding: 40px 24px;
+    text-align: center;
+    margin-top: 48px;
+  }
+  footer .agent-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--paper-pure);
+    margin-bottom: 8px;
+  }
+  footer a {
+    color: var(--pale-teal);
+    text-decoration: none;
+  }
+  footer a:hover {
+    color: var(--paper-pure);
+  }
+  footer .contact-row {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  footer .disclaimer {
+    font-size: 12px;
+    color: rgba(196,228,225,0.7);
+    margin-top: 20px;
+    line-height: 1.6;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 540px) {
+    .cabin-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero { padding: 40px 16px 32px; }
+    .sticky-bar { padding: 12px 16px; }
+    .form-section { padding: 20px 16px; }
+    .container { padding: 0 14px; }
+    .itin-port { padding: 0 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Point Me to Paradise Travel presents</div>
+  <h1>Carnival Breeze<br>Western Caribbean</h1>
+  <p class="hero-sub">Mon May 17 – Sat May 22, 2027 &nbsp;·&nbsp; Departing Galveston, TX</p>
+  <div class="itinerary-strip">
+    <div class="itin-stop">
+      <div class="itin-port">Galveston<span>Day 1 · 3:30 PM</span></div>
+    </div>
+    <div class="itin-arrow">›</div>
+    <div class="itin-stop">
+      <div class="itin-port">Sea Day<span>Day 2</span></div>
+    </div>
+    <div class="itin-arrow">›</div>
+    <div class="itin-stop">
+      <div class="itin-port">Cozumel<span>Day 3</span></div>
+    </div>
+    <div class="itin-arrow">›</div>
+    <div class="itin-stop">
+      <div class="itin-port">Progreso<span>Day 4</span></div>
+    </div>
+    <div class="itin-arrow">›</div>
+    <div class="itin-stop">
+      <div class="itin-port">Sea Day<span>Day 5</span></div>
+    </div>
+    <div class="itin-arrow">›</div>
+    <div class="itin-stop">
+      <div class="itin-port">Galveston<span>Day 6 · 8:00 AM</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- OFFER BANNER -->
+<div class="container">
+  <div class="offer-banner">
+    <strong>Early Saver Sail-A-Thon Sale — OJS Rate</strong>
+    <p>Includes price protection + $25 onboard credit per cabin. Choose your room location. Offer ends May 4, 2026. Deposit is non-refundable and non-transferable. A $50/person fee applies for ship or sail date changes made before final payment.</p>
+  </div>
+
+  <!-- CABIN OPTIONS -->
+  <h2 class="section-heading">Choose Your Stateroom</h2>
+  <p class="section-sub">All prices are per cabin, based on double occupancy. Gratuities and travel protection are optional add-ons below.</p>
+
+  <div class="cabin-grid">
+
+    <!-- OPTION 1: Interior PT -->
+    <div class="cabin-card" id="card-1" onclick="selectCabin(1, 1258, 'Interior Stateroom (PT)')">
+      <img class="cabin-img" src="https://www.carnivalcruiseline.de/sites/default/files/styles/header-full/public/cl_sh_4e_interior_6200_digib.jpg?itok=wX-Ed3Fg" alt="Interior Stateroom">
+      <div class="cabin-body">
+        <div class="cabin-badge">Best Value</div>
+        <div class="cabin-name">Interior Stateroom</div>
+        <p class="cabin-desc">Category PT. No window, but the ship has plenty of open decks and pools — you'll spend most daylight hours outside anyway. A smart pick for groups who want to stretch the budget toward excursions and drinks.</p>
+        <div class="cabin-price-row">
+          <div>
+            <div class="cabin-price">$1,258</div>
+            <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">per cabin / 2 guests</div>
+          </div>
+          <div class="cabin-price-note">$629 per person<br>+ fees & taxes incl.</div>
+        </div>
+        <div class="cabin-perk">$25 onboard credit per cabin</div>
+        <div class="radio-wrap">
+          <input type="radio" name="cabin" id="r1" value="1" onclick="selectCabin(1, 1258, 'Interior Stateroom (PT)')">
+          <label for="r1">Select this cabin</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION 2: Interior 4J Obstructed View -->
+    <div class="cabin-card" id="card-2" onclick="selectCabin(2, 1338, 'Interior – Obstructed View Window (4J)')">
+      <img class="cabin-img" src="https://static.wixstatic.com/media/d30f15_b56b0c982fab423b98d61243e118501d~mv2.jpg/v1/fill/w_480,h_320,al_c,q_80,enc_avif,quality_auto/d30f15_b56b0c982fab423b98d61243e118501d~mv2.jpg" alt="Obstructed View Window Stateroom">
+      <div class="cabin-body">
+        <div class="cabin-badge">Light & Value</div>
+        <div class="cabin-name">Interior — Obstructed View Window</div>
+        <p class="cabin-desc">Category 4J. A window that lets in natural light, though part of the view is blocked by a lifeboat or ship structure. You'll see sky and sea — just not a clear sightline. Good middle ground between interior and ocean view pricing.</p>
+        <div class="cabin-price-row">
+          <div>
+            <div class="cabin-price">$1,338</div>
+            <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">per cabin / 2 guests</div>
+          </div>
+          <div class="cabin-price-note">$669 per person<br>+ fees & taxes incl.</div>
+        </div>
+        <div class="cabin-perk">$25 onboard credit per cabin</div>
+        <div class="radio-wrap">
+          <input type="radio" name="cabin" id="r2" value="2" onclick="selectCabin(2, 1338, 'Interior – Obstructed View Window (4J)')">
+          <label for="r2">Select this cabin</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION 3: Ocean View 6A -->
+    <div class="cabin-card" id="card-3" onclick="selectCabin(3, 1478, 'Ocean View (6A)')">
+      <img class="cabin-img" src="https://www.carnival.com/-/media/Images/explore/staterooms/room-type-tiles/ocean-view-cruise-room.jpg" alt="Ocean View Stateroom">
+      <div class="cabin-body">
+        <div class="cabin-badge">Clear Views</div>
+        <div class="cabin-name">Ocean View Stateroom</div>
+        <p class="cabin-desc">Category 6A. A full, unobstructed window looking out to open water. Wake up to sunrises over the Gulf. Great for light sleepers and anyone who wants to feel connected to the sea without stepping onto a balcony.</p>
+        <div class="cabin-price-row">
+          <div>
+            <div class="cabin-price">$1,478</div>
+            <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">per cabin / 2 guests</div>
+          </div>
+          <div class="cabin-price-note">$739 per person<br>+ fees & taxes incl.</div>
+        </div>
+        <div class="cabin-perk">$25 onboard credit per cabin</div>
+        <div class="radio-wrap">
+          <input type="radio" name="cabin" id="r3" value="3" onclick="selectCabin(3, 1478, 'Ocean View (6A)')">
+          <label for="r3">Select this cabin</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION 4: Cove Balcony 7C -->
+    <div class="cabin-card" id="card-4" onclick="selectCabin(4, 1668, 'Cove Balcony (7C)')">
+      <img class="cabin-img" src="https://www.carnival.com/-/media/Images/explore/staterooms/room-type-tiles/balcony-cruise-room.jpg" alt="Cove Balcony Stateroom">
+      <div class="cabin-body">
+        <div class="cabin-badge">Most Private</div>
+        <div class="cabin-name">Cove Balcony</div>
+        <p class="cabin-desc">Category 7C. The Cove Balcony sits low on the ship — close to the waterline — giving you an intimate, tucked-in feel with your own private outdoor space. More sheltered from wind than upper-deck balconies. A great pick for couples who want a quiet retreat.</p>
+        <div class="cabin-price-row">
+          <div>
+            <div class="cabin-price">$1,668</div>
+            <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">per cabin / 2 guests</div>
+          </div>
+          <div class="cabin-price-note">$834 per person<br>+ fees & taxes incl.</div>
+        </div>
+        <div class="cabin-perk">$25 onboard credit per cabin</div>
+        <div class="radio-wrap">
+          <input type="radio" name="cabin" id="r4" value="4" onclick="selectCabin(4, 1668, 'Cove Balcony (7C)')">
+          <label for="r4">Select this cabin</label>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cabin-grid -->
+
+  <!-- ADD-ONS -->
+  <div class="addons-section">
+    <div class="addons-title">Optional Add-Ons</div>
+    <p class="addons-desc">These are priced per cabin. Select what applies to you and your travel companions.</p>
+
+    <div class="addon-item">
+      <input type="checkbox" id="gratuities" onclick="setTimeout(updateTotal,0)">
+      <div class="addon-label">
+        <strong>Prepaid Gratuities</strong>
+        <span>$85/person ($170/cabin) — covers tips for dining, cabin steward, and bar staff. Convenient to handle upfront rather than at the end of the sailing.</span>
+      </div>
+      <div class="addon-price">$170/cabin</div>
+    </div>
+
+    <div class="addon-item" style="border-bottom:none;">
+      <div class="addon-label">
+        <strong>Travel Insurance</strong>
+        <span>Travel protection is available and strongly recommended — especially for group travel. Ask Andrea for a quote tailored to your group.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PRICING NOTE -->
+  <div class="pricing-note">
+    Individual components in your quote are priced at publicly available rates — and in many cases lower than what you'd find booking on your own. What you're paying for is the rest: the right cabin, a human who answers when something doesn't go to plan, and the confidence that someone's got your trip.
+  </div>
+
+  <!-- IMPORTANT INFO -->
+  <div class="info-box">
+    <h3>What to Know Before You Book</h3>
+    <ul>
+      <li><strong>Deposit:</strong> $50 per person due by May 6, 2026. Non-refundable and non-transferable.</li>
+      <li><strong>Final Payment:</strong> Full balance due by March 3, 2027.</li>
+      <li><strong>Ship/Sail Date Changes:</strong> $50/person fee assessed before final payment date.</li>
+      <li><strong>Onboard Credit:</strong> $25 per cabin — applies to most onboard purchases.</li>
+      <li><strong>Gratuities:</strong> Not included in base fare. Prepaying now is the easiest option.</li>
+      <li><strong>Passports:</strong> Required for all guests departing from Galveston on international itineraries.</li>
+    </ul>
+  </div>
+
+</div><!-- /container -->
+
+<!-- STICKY TOTAL BAR -->
+<div class="sticky-bar">
+  <div>
+    <div class="sticky-label">Estimated Total</div>
+    <div class="sticky-amount" id="totalDisplay">Est. $—</div>
+  </div>
+  <div style="text-align:right;">
+    <div style="font-size:13px; color:var(--pale-teal);">1 cabin selected</div>
+    <div style="font-size:11px; color:rgba(196,228,225,0.7);">Final pricing confirmed before booking</div>
+  </div>
+</div>
+
+<!-- CONTACT FORM -->
+<div class="container">
+  <div class="form-section">
+    <h2>Ready to Reserve Your Spot?</h2>
+    <p>Fill out the form below and Andrea will follow up with next steps, availability confirmation, and deposit instructions.</p>
+
+    <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="74894b5d-f463-481b-b081-b874086b15fc">
+      <input type="hidden" name="subject" value="Quote Request — Carnival Breeze Western Caribbean 2027">
+      <input type="hidden" name="redirect" value="">
+      <input type="hidden" name="cabin_selection" id="hidden_cabin">
+      <input type="hidden" name="addons_selection" id="hidden_addons">
+      <input type="hidden" name="estimated_total" id="hidden_total">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="first_name" required placeholder="Your first name">
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="last_name" required placeholder="Your last name">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(XXX) XXX-XXXX">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cabins">Number of Cabins in Your Group</label>
+        <select id="cabins" name="number_of_cabins">
+          <option value="">Select…</option>
+          <option>1 cabin</option>
+          <option>2 cabins</option>
+          <option>3 cabins</option>
+          <option>4 cabins</option>
+          <option>5 cabins</option>
+          <option>6+ cabins</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="notes">Questions or Notes</label>
+        <textarea id="notes" name="notes" placeholder="Anything you'd like Andrea to know — accessibility needs, adjoining room requests, celebrating a special occasion, etc."></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Send My Request to Andrea</button>
+    </form>
+
+    <div id="formSuccess">
+      <p style="font-family:'Playfair Display',serif; font-size:22px; color:var(--teal-dark); margin-bottom:8px;">Request received!</p>
+      <p style="font-size:15px; color:var(--text-muted);">Andrea will be in touch shortly to confirm availability and walk you through next steps.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="agent-name">Andrea Gunter</div>
+  <div class="contact-row">Point Me to Paradise Travel</div>
+  <div class="contact-row">
+    <a href="#" id="emailLink">Loading…</a> &nbsp;·&nbsp; <a href="tel:4097893579">(409) 789-3579</a>
+  </div>
+  <div class="disclaimer">
+    Prices and availability are subject to change until time of booking. Individual components are priced at publicly available rates. This quote is prepared for group planning purposes; final pricing is confirmed by your agent before booking.
+  </div>
+</footer>
+
+<script>
+var selectedCabinId = null;
+var selectedCabinPrice = 0;
+var selectedCabinName = '';
+
+function selectCabin(id, price, name) {
+  selectedCabinId = id;
+  selectedCabinPrice = price;
+  selectedCabinName = name;
+  document.querySelectorAll('.cabin-card').forEach(function(c) { c.classList.remove('selected'); });
+  document.getElementById('card-' + id).classList.add('selected');
+  var radio = document.getElementById('r' + id);
+  if (radio) radio.checked = true;
+  updateTotal();
+}
+
+function updateTotal() {
+  var total = selectedCabinPrice;
+  var addons = [];
+  if (document.getElementById('gratuities') && document.getElementById('gratuities').checked) {
+    total += 170;
+    addons.push('Prepaid Gratuities ($170/cabin)');
+  }
+  var display = document.getElementById('totalDisplay');
+  if (selectedCabinId) {
+    display.textContent = 'Est. $' + total.toLocaleString();
+  } else {
+    display.textContent = 'Est. $\u2014';
+  }
+  var hiddenCabin = document.getElementById('hidden_cabin');
+  var hiddenAddons = document.getElementById('hidden_addons');
+  var hiddenTotal = document.getElementById('hidden_total');
+  if (hiddenCabin) hiddenCabin.value = selectedCabinName;
+  if (hiddenAddons) hiddenAddons.value = addons.length ? addons.join(', ') : 'None';
+  if (hiddenTotal) hiddenTotal.value = selectedCabinId ? ('Est. $' + total.toLocaleString() + ' per cabin') : 'Not selected';
+}
+
+(function() {
+  var addr = 'andrea' + '@' + 'pointmetoparadise.com';
+  var el = document.getElementById('emailLink');
+  if (el) { el.href = 'mailto:' + addr; el.textContent = addr; }
+})();
+
+var form = document.getElementById('quoteForm');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    updateTotal();
+    var data = new FormData(form);
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (res.success) {
+          form.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          alert('Something went wrong. Please try again or email Andrea directly.');
+        }
+      })
+      .catch(function() {
+        alert('Submission error. Please email Andrea directly.');
+      });
+  });
+}
+</script>
+</body>
+</html>
