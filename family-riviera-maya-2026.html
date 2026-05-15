@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wilburn Family — Riviera Maya, July 2026 | Point Me to Paradise Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #75AFB1;
+  --teal-dark: #4F8A8C;
+  --pale-teal: #C4E4E1;
+  --gold: #DAC396;
+  --gold-dark: #B89E6A;
+  --cream: #E9DEC0;
+  --cream-light: #F5EFDF;
+  --paper: #FBF9F4;
+  --paper-pure: #FFFFFF;
+  --text-primary: #3D3D3D;
+  --text-secondary: #606060;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-italic: 'Cormorant Garamond', Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--paper); color: var(--text-primary); font-size: 16px; line-height: 1.6; }
+
+/* HERO */
+.hero { background: var(--teal-dark); color: var(--paper-pure); padding: 56px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=1400&q=80') center/cover no-repeat; opacity: 0.18; }
+.hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.hero-agency { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pale-teal); margin-bottom: 18px; }
+.hero h1 { font-family: var(--font-heading); font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 700; color: var(--paper-pure); line-height: 1.15; margin-bottom: 10px; }
+.hero-destination { font-family: var(--font-italic); font-style: italic; font-size: clamp(1.15rem, 3vw, 1.5rem); color: var(--gold); margin-bottom: 20px; }
+.hero-meta { font-size: 14px; color: var(--pale-teal); letter-spacing: 0.04em; }
+.hero-meta span { margin: 0 8px; opacity: 0.5; }
+
+/* COMMITMENT */
+.commitment-banner { background: var(--pale-teal); border-left: 4px solid var(--teal-dark); padding: 18px 24px; max-width: 860px; margin: 0 auto; }
+.commitment-banner p { font-size: 14px; font-weight: 500; color: var(--teal-dark); line-height: 1.5; }
+
+/* PRICING BARS */
+.pricing-bar { background: var(--paper-pure); border-top: 3px solid var(--gold); border-bottom: 1px solid var(--cream); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.pricing-bar.sticky-bar { position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.pricing-total-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 2px; }
+.pricing-total { font-family: var(--font-heading); font-size: clamp(1.4rem, 3vw, 1.75rem); font-weight: 700; color: var(--teal-dark); }
+.pricing-deposit { font-size: 13px; color: var(--text-secondary); }
+.pricing-deposit strong { color: var(--teal-dark); font-weight: 600; }
+.pricing-bar-note { font-size: 12px; color: var(--text-secondary); font-style: italic; flex: 1 1 200px; text-align: right; }
+
+/* LAYOUT */
+.section-wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+.section-eyebrow { padding: 40px 0 20px; }
+.eyebrow-row { display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow-pill { background: var(--teal-dark); color: var(--paper-pure); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; }
+.eyebrow-text { font-family: var(--font-heading); font-size: 1.05rem; color: var(--text-secondary); }
+
+/* FLIGHT CARD */
+.flight-card { background: var(--paper-pure); border: 1px solid var(--cream); border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.flight-card-header { background: var(--teal-dark); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.flight-card-left { display: flex; align-items: center; gap: 10px; }
+.flight-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-dark); background: var(--pale-teal); padding: 3px 10px; border-radius: 100px; }
+.flight-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: var(--paper-pure); }
+.flight-airline-note { font-size: 12px; color: var(--pale-teal); }
+.flight-body { padding: 22px 22px 24px; }
+.flight-legs { display: flex; flex-direction: column; gap: 14px; margin-bottom: 18px; }
+.flight-leg { background: var(--cream-light); border-radius: 8px; padding: 14px 18px; }
+.flight-leg-label { font-size: 10px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 8px; }
+.flight-route { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.flight-port { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--teal-dark); }
+.flight-time { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+.flight-arrow { color: var(--gold-dark); font-size: 1rem; }
+.flight-duration { display: inline-block; font-size: 12px; color: var(--text-secondary); background: var(--pale-teal); padding: 2px 10px; border-radius: 100px; margin-top: 8px; }
+.flight-meta { font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 14px; }
+.flight-price-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--cream); }
+.flight-price { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--teal-dark); }
+.flight-note { font-size: 12px; color: var(--text-secondary); }
+
+/* DAY */
+.day-section { padding: 32px 0 0; }
+.day-label { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.day-pill { background: var(--teal-dark); color: var(--paper-pure); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; }
+.day-text { font-family: var(--font-heading); font-size: 1.05rem; color: var(--text-secondary); }
+
+/* HOTEL CARD */
+.component-card { background: var(--paper-pure); border: 1px solid var(--cream); border-radius: 12px; overflow: hidden; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.component-card-header { background: var(--cream-light); padding: 14px 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--cream); }
+.component-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-dark); background: var(--pale-teal); padding: 3px 10px; border-radius: 100px; }
+.component-title { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--teal-dark); }
+
+/* PHOTO GALLERY */
+.hotel-gallery { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 200px 200px; gap: 3px; }
+.hotel-gallery-item { overflow: hidden; position: relative; }
+.hotel-gallery-item.main { grid-row: span 2; }
+.hotel-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.hotel-gallery-item:hover img { transform: scale(1.04); }
+.hotel-gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px 12px; background: linear-gradient(transparent, rgba(0,0,0,0.55)); color: #fff; font-size: 11px; font-weight: 500; letter-spacing: 0.04em; }
+
+/* WIDE PHOTO (parks strip) */
+.parks-photo { width: 100%; height: 180px; object-fit: cover; display: block; border-radius: 8px; margin-bottom: 14px; }
+
+/* ROOM PHOTO PAIR */
+.room-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 22px; }
+.room-photo-item { border-radius: 8px; overflow: hidden; position: relative; height: 160px; }
+.room-photo-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.room-photo-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 6px 10px; background: linear-gradient(transparent, rgba(0,0,0,0.55)); color: #fff; font-size: 11px; }
+
+/* HOTEL BODY */
+.hotel-body { padding: 24px 24px 28px; }
+.hotel-name { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+.hotel-tagline { font-family: var(--font-italic); font-style: italic; font-size: 1rem; color: var(--gold-dark); margin-bottom: 16px; }
+.hotel-meta-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.hotel-meta-item { font-size: 13px; color: var(--text-secondary); }
+.hotel-meta-item strong { color: var(--text-primary); font-weight: 600; }
+.hotel-copy { font-size: 15px; color: var(--text-primary); line-height: 1.7; margin-bottom: 22px; }
+.includes-heading { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 12px; }
+.includes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin-bottom: 22px; }
+.include-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: var(--text-primary); line-height: 1.45; }
+.include-item::before { content: '✓'; color: var(--teal-dark); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.parks-section { background: var(--cream-light); border-radius: 10px; padding: 20px; margin-bottom: 22px; }
+.park-item { padding: 10px 0; border-bottom: 1px solid var(--cream); font-size: 13.5px; color: var(--text-primary); }
+.park-item:last-child { border-bottom: none; }
+.park-item strong { color: var(--teal-dark); font-weight: 600; }
+
+/* PRICING BLOCK */
+.pricing-block { background: var(--pale-teal); border-radius: 10px; padding: 20px 22px; margin-bottom: 18px; }
+.pricing-block-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--text-primary); padding: 5px 0; }
+.pricing-block-row.strike { color: var(--text-secondary); text-decoration: line-through; }
+.pricing-block-row.discount { color: var(--teal-dark); font-weight: 600; }
+.pricing-block-row.total { border-top: 1px solid var(--teal); margin-top: 8px; padding-top: 12px; font-weight: 700; font-size: 16px; color: var(--teal-dark); }
+.payment-note { font-size: 12.5px; color: var(--text-secondary); margin-top: 10px; line-height: 1.55; }
+
+/* AGENT NOTE */
+.agent-note { background: var(--cream-light); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 6px; }
+.agent-note-label { font-size: 10px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 6px; }
+.agent-note p { font-size: 13.5px; color: var(--text-primary); line-height: 1.65; font-style: italic; }
+
+/* TRIP SUMMARY */
+.trip-summary-block { background: var(--cream-light); border-radius: 10px; padding: 20px 24px; margin: 28px 0 0; }
+.trip-summary-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+.trip-summary-lines { flex: 1 1 260px; }
+.trip-summary-line { font-size: 13.5px; color: var(--text-secondary); padding: 4px 0; }
+.trip-summary-line strong { color: var(--text-primary); font-weight: 500; }
+.trip-summary-total-block { text-align: right; }
+.trip-summary-total { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--teal-dark); }
+.trip-summary-disclaimer { font-size: 11.5px; color: var(--text-secondary); margin-top: 12px; line-height: 1.5; font-style: italic; }
+
+/* BOTTOM CALLOUT */
+.bottom-callout { background: var(--teal-dark); padding: 36px 24px; text-align: center; margin-top: 32px; }
+.bottom-callout-inner { max-width: 640px; margin: 0 auto; }
+.bottom-callout p { font-size: 15px; line-height: 1.7; color: var(--pale-teal); }
+.bottom-callout p strong { color: var(--paper-pure); font-weight: 600; }
+
+/* FORM */
+.form-section { background: var(--cream-light); padding: 48px 24px; }
+.form-inner { max-width: 640px; margin: 0 auto; }
+.form-heading { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 600; color: var(--teal-dark); text-align: center; margin-bottom: 8px; }
+.form-subheading { text-align: center; font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; }
+.form-summary-box { background: var(--paper-pure); border: 1.5px solid var(--pale-teal); border-radius: 8px; padding: 16px; margin-bottom: 20px; font-size: 13.5px; color: var(--text-primary); line-height: 1.6; }
+.form-summary-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 8px; }
+.form-row { margin-bottom: 16px; }
+.form-label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 6px; }
+.form-input, .form-textarea { width: 100%; padding: 13px 16px; border: 1.5px solid var(--cream); border-radius: 8px; background: var(--paper-pure); font-family: var(--font-body); font-size: 16px; color: var(--text-primary); outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+.form-input:focus, .form-textarea:focus { border-color: var(--teal); }
+.form-textarea { min-height: 100px; resize: vertical; }
+.submit-btn { width: 100%; background: var(--teal-dark); color: var(--paper-pure); font-family: var(--font-body); font-size: 16px; font-weight: 600; letter-spacing: 0.05em; padding: 16px; border: none; border-radius: 8px; cursor: pointer; min-height: 56px; transition: background 0.2s; -webkit-appearance: none; }
+.submit-btn:hover { background: var(--teal); }
+.submit-success { display: none; background: var(--pale-teal); border: 1.5px solid var(--teal); border-radius: 8px; padding: 20px; text-align: center; font-size: 15px; color: var(--teal-dark); font-weight: 500; margin-top: 16px; }
+
+/* FOOTER */
+footer { background: var(--teal-dark); padding: 36px 24px; text-align: center; }
+.footer-inner { max-width: 600px; margin: 0 auto; }
+.footer-name { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--paper-pure); margin-bottom: 8px; }
+.footer-contact { font-size: 14px; color: var(--pale-teal); margin-bottom: 4px; }
+.footer-contact a { color: var(--pale-teal); text-decoration: none; }
+.footer-contact a:hover { color: var(--gold); }
+.footer-legal { font-size: 11.5px; color: rgba(196,228,225,0.65); margin-top: 14px; line-height: 1.5; }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .hotel-gallery { grid-template-columns: 1fr; grid-template-rows: 220px 160px 160px; }
+  .hotel-gallery-item.main { grid-row: span 1; }
+  .room-photos { grid-template-columns: 1fr; }
+  .room-photo-item { height: 180px; }
+}
+@media (max-width: 540px) {
+  .hero { padding: 40px 16px 36px; }
+  .pricing-bar { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .pricing-bar-note { text-align: left; }
+  .includes-grid { grid-template-columns: 1fr; }
+  .hotel-meta-row { flex-direction: column; gap: 6px; }
+  .flight-price-row { flex-direction: column; align-items: flex-start; }
+  .trip-summary-row { flex-direction: column; }
+  .trip-summary-total-block { text-align: left; }
+  .bottom-callout { padding: 28px 16px; }
+  .form-section { padding: 36px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-agency">Point Me to Paradise Travel &nbsp;·&nbsp; Crafted by Andrea Gunter</div>
+    <h1>Wilburn Family</h1>
+    <div class="hero-destination">Riviera Maya, Mexico</div>
+    <div class="hero-meta">2 Adults, 2 Children <span>|</span> July 13–18, 2026 <span>|</span> 5 Nights</div>
+  </div>
+</section>
+
+<!-- COMMITMENT #1 -->
+<div style="background:var(--pale-teal);">
+  <div class="commitment-banner">
+    <p>We don't book hotels. We build trips. Custom guides, trip app, real human when something goes sideways. The work you'd hate doing — already done.</p>
+  </div>
+</div>
+
+<!-- PRICING BAR TOP -->
+<div class="pricing-bar sticky-bar">
+  <div>
+    <div class="pricing-total-label">Estimated Trip Total</div>
+    <div class="pricing-total" id="totalTop">Est. $7,081</div>
+  </div>
+  <div>
+    <div class="pricing-deposit">Reserve with <strong>$1,414 deposit</strong></div>
+    <div class="pricing-deposit" style="margin-top:2px;">Balance due June 10, 2026</div>
+  </div>
+  <div class="pricing-bar-note">We check every component against public rates and meet or beat them. You're not paying a premium for our convenience — you're paying for the rest of what we do.</div>
+</div>
+
+<!-- FLIGHTS -->
+<div class="section-wrap">
+  <div class="section-eyebrow">
+    <div class="eyebrow-row">
+      <span class="eyebrow-pill">Flights</span>
+      <span class="eyebrow-text">Houston IAH ⇄ Cancún CUN &nbsp;·&nbsp; Nonstop Both Ways</span>
+    </div>
+  </div>
+  <div class="flight-card">
+    <div class="flight-card-header">
+      <div class="flight-card-left">
+        <span class="flight-tag">Flight</span>
+        <span class="flight-title">United Airlines — Nonstop Round-Trip</span>
+      </div>
+      <div class="flight-airline-note">4 Passengers &nbsp;·&nbsp; Basic Economy</div>
+    </div>
+    <div class="flight-body">
+      <div class="flight-legs">
+        <div class="flight-leg">
+          <div class="flight-leg-label">Outbound — Monday, July 13</div>
+          <div class="flight-route">
+            <div><div class="flight-port">IAH</div><div class="flight-time">10:10 AM</div></div>
+            <div class="flight-arrow">✈ &nbsp;––––</div>
+            <div><div class="flight-port">CUN</div><div class="flight-time">12:33 PM</div></div>
+          </div>
+          <div class="flight-duration">Nonstop · 2 hr 23 min</div>
+        </div>
+        <div class="flight-leg">
+          <div class="flight-leg-label">Return — Saturday, July 18</div>
+          <div class="flight-route">
+            <div><div class="flight-port">CUN</div><div class="flight-time">5:22 PM</div></div>
+            <div class="flight-arrow">✈ &nbsp;––––</div>
+            <div><div class="flight-port">IAH</div><div class="flight-time">7:55 PM</div></div>
+          </div>
+          <div class="flight-duration">Nonstop · 2 hr 33 min</div>
+        </div>
+      </div>
+      <div class="flight-meta"><strong>Basic Economy note:</strong> Includes personal item only. Seat selection, carry-on bags, and changes available for a fee. If you'd like seats pre-assigned or want to add bags, let Andrea know.</div>
+      <div class="flight-price-row">
+        <div><div class="flight-price">$1,414 total</div><div class="flight-note">All 4 passengers · nonstop round-trip</div></div>
+        <div class="flight-note">Included in trip total</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY BY DAY -->
+<div class="section-wrap">
+  <div class="day-section">
+    <div class="day-label">
+      <span class="day-pill">Day 1</span>
+      <span class="day-text">Monday, July 13 — Arrival &amp; Check-In</span>
+    </div>
+
+    <div class="component-card">
+      <div class="component-card-header">
+        <span class="component-tag">Hotel · 5 Nights</span>
+        <span class="component-title">Hotel Xcaret Mexico</span>
+      </div>
+
+      <!-- MAIN PHOTO GALLERY (4 images) -->
+      <div class="hotel-gallery">
+        <!-- Main: resort aerial/pool -->
+        <div class="hotel-gallery-item main">
+          <img
+            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=85"
+            alt="Hotel Xcaret Mexico — resort pool and grounds"
+            onerror="this.src='https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80'"
+          >
+          <div class="hotel-gallery-caption">Resort grounds &amp; pools</div>
+        </div>
+        <!-- Right top: Caribbean beach/cove -->
+        <div class="hotel-gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=85"
+            alt="Caribbean beach cove, Riviera Maya"
+            onerror="this.src='https://images.unsplash.com/photo-1552084162-6ca8bc960c44?w=600&q=80'"
+          >
+          <div class="hotel-gallery-caption">Private beach &amp; coves</div>
+        </div>
+        <!-- Right bottom: suite interior -->
+        <div class="hotel-gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=85"
+            alt="Suite Garden interior — Hotel Xcaret Mexico"
+            onerror="this.src='https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?w=600&q=80'"
+          >
+          <div class="hotel-gallery-caption">Suite Garden room</div>
+        </div>
+      </div>
+
+      <div class="hotel-body">
+        <div class="hotel-name">Hotel Xcaret Mexico</div>
+        <div class="hotel-tagline">All-Fun Inclusive™ — Riviera Maya's Adventure Resort</div>
+
+        <div class="hotel-meta-row">
+          <div class="hotel-meta-item"><strong>Room:</strong> Suite Garden</div>
+          <div class="hotel-meta-item"><strong>Guests:</strong> 2 Adults, 2 Children</div>
+          <div class="hotel-meta-item"><strong>Check-in:</strong> July 13, 2026</div>
+          <div class="hotel-meta-item"><strong>Check-out:</strong> July 18, 2026</div>
+          <div class="hotel-meta-item"><strong>Package:</strong> All-Fun Inclusive™</div>
+        </div>
+
+        <p class="hotel-copy">
+          Hotel Xcaret isn't a conventional all-inclusive — it's closer to a base camp for a week of structured adventure. You land, the shuttle's waiting, and from that point the logistics are handled: meals, drinks, every park on the list, and transportation between all of them. Suite Garden rooms are genuinely spacious for a family of four — you're not on top of each other. The pools are good, the underground river at Xcaret Park is something kids tend to want to do twice, and between seven included parks there is no realistic way to run out of things to do in five days.
+        </p>
+
+        <!-- ROOM PHOTOS -->
+        <div class="includes-heading">The Suite Garden</div>
+        <div class="room-photos">
+          <div class="room-photo-item">
+            <img
+              src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=700&q=85"
+              alt="Suite Garden — bedroom with jungle or garden view"
+              onerror="this.src='https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?w=700&q=80'"
+            >
+            <div class="room-photo-caption">King or double beds · private balcony</div>
+          </div>
+          <div class="room-photo-item">
+            <img
+              src="https://images.unsplash.com/photo-1620332372374-f108c53d2e03?w=700&q=85"
+              alt="Suite Garden — jacuzzi and bathroom"
+              onerror="this.src='https://images.unsplash.com/photo-1552084162-6ca8bc960c44?w=700&q=80'"
+            >
+            <div class="room-photo-caption">Private jacuzzi · sofa bed for kids</div>
+          </div>
+        </div>
+
+        <!-- WHAT'S INCLUDED -->
+        <div class="includes-heading">What's included</div>
+        <div class="includes-grid">
+          <div class="include-item">Suite Garden accommodations, 5 nights</div>
+          <div class="include-item">Unlimited access to all Xcaret Parks</div>
+          <div class="include-item">Transportation to &amp; from every park</div>
+          <div class="include-item">Round-trip airport transfer from Cancun</div>
+          <div class="include-item">All meals, drinks &amp; snacks at resort &amp; parks</div>
+          <div class="include-item">Kids club &amp; supervised family activities</div>
+          <div class="include-item">Multiple pools, waterslides &amp; beach access</div>
+          <div class="include-item">Kayaks, paddleboards &amp; family coves</div>
+        </div>
+
+        <!-- PARKS SECTION WITH PHOTO -->
+        <img
+          class="parks-photo"
+          src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1100&q=85"
+          alt="Xcaret Park — underground river and eco-adventure"
+          onerror="this.src='https://images.unsplash.com/photo-1502400427436-1e94b8c3f6f4?w=1100&q=80'"
+        >
+
+        <div class="parks-section">
+          <div class="includes-heading">Parks &amp; experiences included</div>
+          <div class="park-item"><strong>Xcaret Park</strong> — underground rivers, aquariums, wildlife, snorkeling, cultural shows, kids activities, beaches</div>
+          <div class="park-item"><strong>Xel-Há</strong> — natural water park: snorkeling, cliff jumps, tubing, lazy river atmosphere</div>
+          <div class="park-item"><strong>Xplor</strong> — zip lines, amphibious vehicles, underground caves, rapids</div>
+          <div class="park-item"><strong>Xplor Fuego</strong> — nighttime version of Xplor; ziplining and adventure after dark</div>
+          <div class="park-item"><strong>Xenses</strong> — optical illusions, sensory experiences, family photo moments</div>
+          <div class="park-item"><strong>Xoximilco</strong> — Mexican dinner cruise with live music and entertainment</div>
+          <div class="park-item"><strong>Xenotes</strong> — cenote tour: kayaking, zip lines, swimming, rappelling</div>
+        </div>
+
+        <!-- FAMILY POOL PHOTO -->
+        <img
+          class="parks-photo"
+          src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1100&q=85"
+          alt="Family pool and water activities at the resort"
+          onerror="this.src='https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1100&q=80'"
+        >
+
+        <div class="pricing-block">
+          <div class="pricing-block-row strike"><span>Original Price</span><span>$8,257.00</span></div>
+          <div class="pricing-block-row discount"><span>35% Discount Applied</span><span>−$2,589.81</span></div>
+          <div class="pricing-block-row total"><span>Hotel Package</span><span>$5,667.19</span></div>
+          <div class="payment-note">
+            Individual hotels, transfers, and tours in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right rooms at the right property, operators we've used for years, the trip app, and a human who answers when something doesn't go to plan.
+          </div>
+        </div>
+
+        <div class="agent-note">
+          <div class="agent-note-label">Andrea's note</div>
+          <p>This is honestly one of the best family resorts in Mexico if your kids are active and love adventure. Between the included parks and the food alone, parents usually leave needing a vacation from the vacation — but in the best possible way. Park tickets and airport transfers purchased separately would run well into the hundreds. Here they're folded in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRIP SUMMARY -->
+<div class="section-wrap">
+  <div class="trip-summary-block">
+    <div class="trip-summary-row">
+      <div class="trip-summary-lines">
+        <div class="trip-summary-line">✈ &nbsp;<strong>Flights</strong> — United Airlines, nonstop IAH ⇄ CUN, July 13 &amp; 18, 4 passengers &nbsp;&nbsp; $1,414</div>
+        <div class="trip-summary-line">🏨 &nbsp;<strong>Hotel</strong> — Hotel Xcaret Mexico, Suite Garden, All-Fun Inclusive™, 5 nights &nbsp;&nbsp; $5,667.19</div>
+      </div>
+      <div class="trip-summary-total-block">
+        <div class="pricing-total-label">Estimated Total</div>
+        <div class="trip-summary-total" id="totalBottom">Est. $7,081</div>
+      </div>
+    </div>
+    <div class="trip-summary-disclaimer">
+      Pricing and availability subject to change until fully booked. Final pricing confirmed by your advisor. Prices and availability are subject to change until time of booking.
+    </div>
+  </div>
+</div>
+
+<!-- PRICING BAR BOTTOM -->
+<div class="pricing-bar" style="margin-top:0; border-top: 1px solid var(--cream); border-bottom: 3px solid var(--gold);">
+  <div>
+    <div class="pricing-total-label">Estimated Trip Total</div>
+    <div class="pricing-total" id="totalBottom2">Est. $7,081</div>
+  </div>
+  <div>
+    <div class="pricing-deposit">Reserve with <strong>$1,414 deposit</strong></div>
+    <div class="pricing-deposit" style="margin-top:2px;">Balance due June 10, 2026</div>
+  </div>
+</div>
+
+<!-- COMMITMENT #4 -->
+<div class="bottom-callout">
+  <div class="bottom-callout-inner">
+    <p><strong>What's coming after this quote:</strong> a destination guide built for your trip — PDF or interactive in-app, with Google Maps links to every place we send you — a trip app where everything lives, and us when something goes sideways at midnight. You travel; we handle the rest.</p>
+  </div>
+</div>
+
+<!-- CONTACT FORM -->
+<section class="form-section">
+  <div class="form-inner">
+    <div class="form-heading">Ready to move forward?</div>
+    <div class="form-subheading">Fill this out and Andrea will be in touch within one business day.</div>
+    <div class="form-summary-box">
+      <div class="form-summary-label">Your trip summary</div>
+      <div>United Airlines nonstop IAH ⇄ CUN, July 13 &amp; 18 (4 passengers) &nbsp;·&nbsp; Hotel Xcaret Mexico, Suite Garden, All-Fun Inclusive™, 5 nights &nbsp;·&nbsp; <strong id="formTotal">Est. $7,081</strong></div>
+    </div>
+    <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="74894b5d-f463-481b-b081-b874086b15fc">
+      <input type="hidden" name="subject" value="New Quote Request — Wilburn Family, Riviera Maya 2026">
+      <input type="hidden" name="from_name" value="PMTP Quote Form">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="trip_selection" value="United Airlines nonstop IAH-CUN, July 13 and 18 | Hotel Xcaret Mexico, Suite Garden, All-Fun Inclusive, 5 nights">
+      <input type="hidden" name="estimated_total" id="hiddenTotal" value="Est. $7,081">
+      <div class="form-row">
+        <label class="form-label" for="clientName">Your Name</label>
+        <input class="form-input" type="text" id="clientName" name="client_name" placeholder="Full name" required autocomplete="name">
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="clientEmail">Email</label>
+        <input class="form-input" type="email" id="clientEmail" name="client_email" placeholder="your@email.com" required autocomplete="email">
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="clientPhone">Phone (optional)</label>
+        <input class="form-input" type="tel" id="clientPhone" name="client_phone" placeholder="(xxx) xxx-xxxx" autocomplete="tel">
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="clientNotes">Questions or notes</label>
+        <textarea class="form-textarea" id="clientNotes" name="client_notes" placeholder="Anything you'd like Andrea to know before the call…"></textarea>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">Send to Andrea →</button>
+      <div class="submit-success" id="submitSuccess">✓ &nbsp; Got it! Andrea will be in touch within one business day.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">Andrea Gunter</div>
+    <div class="footer-contact">Point Me to Paradise Travel</div>
+    <div class="footer-contact" style="margin-top:6px;">
+      <a id="emailLink" href="#">Loading…</a> &nbsp;·&nbsp; <a href="tel:4097893579">409-789-3579</a>
+    </div>
+    <div class="footer-legal">
+      Prices and availability are subject to change until time of booking.<br>
+      Individual hotels, transfers, and tours in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. This quote is prepared by Point Me to Paradise Travel.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var addr = 'andrea' + '@' + 'pointmetoparadise.com';
+  var el = document.getElementById('emailLink');
+  if (el) { el.href = 'mailto:' + addr; el.textContent = addr; }
+})();
+
+var BASE = 7081.19;
+function fmt(n) { return 'Est. $' + Math.round(n).toLocaleString('en-US'); }
+function sync() {
+  var t = fmt(BASE);
+  ['totalTop','totalBottom','totalBottom2'].forEach(function(id){
+    var el = document.getElementById(id); if (el) el.textContent = t;
+  });
+  var ft = document.getElementById('formTotal'); if (ft) ft.textContent = t;
+  var ht = document.getElementById('hiddenTotal'); if (ht) ht.value = t;
+}
+sync();
+
+var form = document.getElementById('quoteForm');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d.success) {
+          document.getElementById('submitSuccess').style.display = 'block';
+          btn.style.display = 'none';
+        } else {
+          btn.textContent = 'Send to Andrea →'; btn.disabled = false;
+          alert('Something went wrong. Please email Andrea directly.');
+        }
+      })
+      .catch(function(){
+        btn.textContent = 'Send to Andrea →'; btn.disabled = false;
+        alert('Connection error. Please try again or email Andrea directly.');
+      });
+  });
+}
+</script>
+</body>
+</html>
