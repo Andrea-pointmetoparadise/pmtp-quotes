@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your July Cruise Options — Belem Jacome | Point Me to Paradise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #75AFB1;
+    --teal-dark: #4F8A8C;
+    --pale-teal: #C4E4E1;
+    --gold: #DAC396;
+    --gold-dark: #B89E6A;
+    --cream: #E9DEC0;
+    --cream-light: #F5EFDF;
+    --paper: #FBF9F4;
+    --paper-pure: #FFFFFF;
+    --text: #3D3D3D;
+    --text-muted: #606060;
+    --font-head: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-italic: 'Cormorant Garamond', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ─── HEADER ─── */
+  .site-header {
+    background: var(--teal-dark);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .site-header .brand {
+    font-family: var(--font-head);
+    color: var(--paper-pure);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .site-header .brand span {
+    font-family: var(--font-italic);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+  }
+  .site-header .header-contact {
+    font-size: 0.82rem;
+    color: var(--pale-teal);
+    text-align: right;
+  }
+  .site-header .header-contact a {
+    color: var(--pale-teal);
+    text-decoration: none;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, #8BBFBF 100%);
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.025) 40px,
+      rgba(255,255,255,0.025) 80px
+    );
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--paper-pure);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .hero-sub {
+    font-family: var(--font-italic);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--pale-teal);
+    margin-bottom: 24px;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    color: var(--paper-pure);
+    font-weight: 500;
+  }
+
+  /* ─── PMTP COMMITMENT CALLOUT ─── */
+  .commitment-banner {
+    background: var(--cream);
+    border-left: 4px solid var(--teal-dark);
+    padding: 18px 24px;
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .main-wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* ─── SECTION TITLES ─── */
+  .section-title {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin: 48px 0 6px;
+  }
+  .section-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  /* ─── SAILING CARDS ─── */
+  .sailing-card {
+    background: var(--paper-pure);
+    border: 1px solid var(--pale-teal);
+    border-radius: 14px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+  .sailing-card:hover {
+    box-shadow: 0 4px 24px rgba(79,138,140,0.14);
+  }
+  .sailing-card.selected-card {
+    border: 2px solid var(--teal-dark);
+    box-shadow: 0 0 0 4px rgba(79,138,140,0.1);
+  }
+
+  .sailing-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 12px;
+    padding: 20px 22px 16px;
+    border-bottom: 1px solid var(--pale-teal);
+    background: var(--cream-light);
+  }
+  .sailing-line-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+  }
+  .badge-virgin { background: #e8d5f0; color: #6a2f8c; }
+  .badge-royal { background: #d0e8f7; color: #1a5f8c; }
+
+  .sailing-name {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    line-height: 1.25;
+  }
+  .sailing-dates {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+  .sailing-price-badge {
+    text-align: right;
+    white-space: nowrap;
+  }
+  .sailing-price-from {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sailing-price-num {
+    font-family: var(--font-head);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--teal-dark);
+    line-height: 1;
+  }
+
+  /* Sailing body */
+  .sailing-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  @media (max-width: 620px) {
+    .sailing-body { grid-template-columns: 1fr; }
+  }
+
+  .sailing-itinerary {
+    padding: 20px 22px;
+    border-right: 1px solid var(--pale-teal);
+  }
+  @media (max-width: 620px) {
+    .sailing-itinerary { border-right: none; border-bottom: 1px solid var(--pale-teal); }
+  }
+
+  .sailing-section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+
+  .port-list { list-style: none; }
+  .port-list li {
+    display: flex;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 1px dotted var(--pale-teal);
+    font-size: 0.87rem;
+  }
+  .port-list li:last-child { border-bottom: none; }
+  .port-date {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    width: 54px;
+    font-size: 0.78rem;
+    padding-top: 1px;
+  }
+  .port-name { font-weight: 500; color: var(--text); }
+  .port-times {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: block;
+    font-weight: 400;
+  }
+
+  /* cabin / option side */
+  .sailing-options {
+    padding: 20px 22px;
+  }
+
+  .cabin-option {
+    margin-bottom: 18px;
+  }
+  .cabin-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: var(--pale-teal);
+  }
+  .cabin-select-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .cabin-select-row input[type="radio"] {
+    margin-top: 3px;
+    accent-color: var(--teal-dark);
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+  }
+  .cabin-label {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text);
+  }
+  .cabin-price {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--teal-dark);
+  }
+  .cabin-desc {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+
+  /* included list */
+  .included-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .included-chip {
+    background: var(--pale-teal);
+    color: var(--teal-dark);
+    border-radius: 20px;
+    font-size: 0.73rem;
+    font-weight: 600;
+    padding: 3px 10px;
+  }
+  .notincluded-chip {
+    background: var(--cream);
+    color: var(--text-muted);
+    border-radius: 20px;
+    font-size: 0.73rem;
+    font-weight: 500;
+    padding: 3px 10px;
+  }
+
+  /* add-ons */
+  .addon-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 0.86rem;
+  }
+  .addon-row input[type="checkbox"] {
+    accent-color: var(--teal-dark);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  /* honest pricing callout */
+  .pricing-note {
+    background: var(--cream-light);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+  .pricing-note strong { color: var(--text); }
+
+  /* ─── STICKY TOTAL ─── */
+  .sticky-total {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .sticky-total .total-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pale-teal);
+  }
+  .sticky-total .total-amount {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .sticky-total .total-note {
+    font-size: 0.75rem;
+    color: var(--pale-teal);
+    flex-basis: 100%;
+    line-height: 1.3;
+  }
+  .pricing-sub-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 8px 24px 4px;
+    background: var(--paper);
+  }
+
+  /* ─── AFTER-QUOTE CALLOUT ─── */
+  .after-quote-callout {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin: 40px 0 0;
+    border-left: 5px solid var(--gold-dark);
+  }
+  .after-quote-callout h3 {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+  }
+  .after-quote-callout p {
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ─── CONTACT FORM ─── */
+  .contact-section {
+    margin-top: 40px;
+  }
+  .contact-section h2 {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+  .contact-section p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  .form-card {
+    background: var(--paper-pure);
+    border: 1px solid var(--pale-teal);
+    border-radius: 14px;
+    padding: 28px 28px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 540px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+  .form-group { display: flex; flex-direction: column; gap: 5px; }
+  .form-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    border: 1px solid var(--pale-teal);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text);
+    background: var(--paper);
+    outline: none;
+    transition: border-color 0.2s;
+    min-height: 44px;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--teal-dark); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+
+  .form-selection-summary {
+    background: var(--cream-light);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    font-size: 0.87rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .form-selection-summary strong { color: var(--teal-dark); }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    border: none;
+    border-radius: 10px;
+    padding: 16px 24px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    min-height: 52px;
+    transition: background 0.2s;
+  }
+  .submit-btn:hover { background: #3d6e70; }
+
+  .form-success {
+    display: none;
+    background: var(--pale-teal);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: var(--teal-dark);
+    font-weight: 600;
+    margin-top: 16px;
+    font-size: 0.95rem;
+  }
+  .form-error {
+    display: none;
+    background: #fde8e8;
+    border-radius: 10px;
+    padding: 16px;
+    color: #b94a4a;
+    font-size: 0.88rem;
+    margin-top: 12px;
+  }
+
+  /* ─── FOOTER ─── */
+  .site-footer {
+    background: var(--teal-dark);
+    color: var(--pale-teal);
+    padding: 32px 24px;
+    margin-top: 48px;
+    text-align: center;
+  }
+  .site-footer .footer-name {
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--paper-pure);
+    margin-bottom: 6px;
+  }
+  .site-footer a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .site-footer .footer-fine {
+    font-size: 0.78rem;
+    color: var(--pale-teal);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* ─── DEPOSIT NOTE ─── */
+  .deposit-note {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--text-muted);
+    border: 1px solid var(--gold-dark);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    margin-top: 8px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 540px) {
+    .sailing-header { grid-template-columns: 1fr; }
+    .sailing-price-badge { text-align: left; }
+    .hero { padding: 36px 18px 32px; }
+    .main-wrap { padding: 0 14px 48px; }
+    .form-card { padding: 20px 16px; }
+    .after-quote-callout { padding: 22px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="brand">Point Me to Paradise <span>Travel</span></div>
+  <div class="header-contact">
+    Andrea Gunter &nbsp;|&nbsp; 409-789-3579<br>
+    <a id="headerEmail" href="#">andrea@pointmetoparadise.com</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Your Cruise Quote — July 2026</div>
+  <h1>Five sailings. One decision, Belem.</h1>
+  <div class="hero-sub">Here's what July looks like on the water.</div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">1 Traveler</div>
+    <div class="hero-meta-item">July 2026</div>
+    <div class="hero-meta-item">5 Options to Compare</div>
+  </div>
+</div>
+
+<!-- COMMITMENT BANNER -->
+<div class="commitment-banner">
+  Think of us as the part of the trip you don't have to worry about — custom guide, trip app, real person on the other end when you need one.
+</div>
+
+<!-- STICKY TOTAL -->
+<div class="sticky-total" id="stickyTotal">
+  <div>
+    <div class="total-label">Your Selection</div>
+    <div id="totalDisplay" class="total-amount">— No sailing selected —</div>
+  </div>
+  <div class="total-note">Full payment is due at time of booking for all sailings in this quote. We check every component against public rates and meet or beat them.</div>
+</div>
+<div class="pricing-sub-note">Full payment due at time of booking. Pricing and availability subject to change until booked. Final pricing confirmed by your advisor.</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <div class="section-title">Compare Your Sailings</div>
+  <div class="section-sub">Each sailing below is a complete option — select the one that feels right and add any extras, then send Andrea a note at the bottom.</div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- SAILING A: Virgin Voyages Jul 6   -->
+  <!-- ══════════════════════════════════ -->
+  <div class="sailing-card" id="card-A">
+    <div class="sailing-header">
+      <div>
+        <span class="sailing-line-badge badge-virgin">Virgin Voyages</span>
+        <div class="sailing-name">Resilient Lady — Bahamas &amp; Dominican Republic</div>
+        <div class="sailing-dates">July 6 – 11, 2026 &nbsp;·&nbsp; 5 Nights &nbsp;·&nbsp; Roundtrip Miami</div>
+      </div>
+      <div class="sailing-price-badge">
+        <div class="sailing-price-from">From</div>
+        <div class="sailing-price-num" id="priceA">$1,875</div>
+      </div>
+    </div>
+
+    <div class="sailing-body">
+      <div class="sailing-itinerary">
+        <div class="sailing-section-label">Itinerary</div>
+        <ul class="port-list">
+          <li><span class="port-date">Jul 6</span><span class="port-name">Miami, FL<span class="port-times">Depart 5:00 PM</span></span></li>
+          <li><span class="port-date">Jul 7</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 8</span><span class="port-name">Puerto Plata, Dominican Republic<span class="port-times">10:00 AM – 7:00 PM</span></span></li>
+          <li><span class="port-date">Jul 9</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 10</span><span class="port-name">Beach Club at Bimini, Bahamas<span class="port-times">9:00 AM – 7:00 PM</span></span></li>
+          <li><span class="port-date">Jul 11</span><span class="port-name">Miami, FL<span class="port-times">Arrive 6:30 AM</span></span></li>
+        </ul>
+        <div class="included-grid" style="margin-top:14px;">
+          <span class="included-chip">All dining included</span>
+          <span class="included-chip">Wi-Fi included</span>
+          <span class="included-chip">Gratuities included</span>
+          <span class="included-chip">Adults-only</span>
+          <span class="included-chip">Group fitness</span>
+          <span class="included-chip">Basic beverages</span>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;line-height:1.45;">Puerto Plata sits on the north coast of the Dominican Republic — an easy afternoon of amber-bricked forts, cable-car views, and cold Presidente. Bimini is Virgin's own beach club: think open bar, clear water, and zero agenda. This sailing departs July 6, giving you the holiday week on the water.</p>
+        <span class="deposit-note">Full payment due at time of booking</span>
+      </div>
+
+      <div class="sailing-options">
+        <div class="sailing-section-label">Choose Your Stateroom</div>
+        <div class="cabin-option">
+          <img class="cabin-img" src="https://s1.it.atcdn.net/wp-content/uploads/2023/06/IMG-CAB-solo-sea-view-architectural-interior-main-v1-01-9459-UNCROPPED.jpg" alt="Solo Insider cabin on Resilient Lady" loading="lazy">
+          <div class="cabin-select-row">
+            <input type="radio" name="sailingChoice" id="A-cabin1" value="A|Solo Insider|1875|0" onclick="setTimeout(updateTotal,0)">
+            <div>
+              <label for="A-cabin1" class="cabin-label">Solo Insider</label>
+              <div class="cabin-price">$1,875</div>
+              <div class="cabin-desc">Purpose-built for solo travelers. Full-size bed, sea-view window, none of the single-supplement math that punishes you on traditional lines. Price includes all taxes and fees.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- SAILING B: Virgin Voyages Jul 20  -->
+  <!-- ══════════════════════════════════ -->
+  <div class="sailing-card" id="card-B">
+    <div class="sailing-header">
+      <div>
+        <span class="sailing-line-badge badge-virgin">Virgin Voyages</span>
+        <div class="sailing-name">Resilient Lady — Mexico &amp; Bahamas</div>
+        <div class="sailing-dates">July 20 – 25, 2026 &nbsp;·&nbsp; 5 Nights &nbsp;·&nbsp; Roundtrip Miami</div>
+      </div>
+      <div class="sailing-price-badge">
+        <div class="sailing-price-from">From</div>
+        <div class="sailing-price-num" id="priceB">$1,400</div>
+      </div>
+    </div>
+
+    <div class="sailing-body">
+      <div class="sailing-itinerary">
+        <div class="sailing-section-label">Itinerary</div>
+        <ul class="port-list">
+          <li><span class="port-date">Jul 20</span><span class="port-name">Miami, FL<span class="port-times">Depart 5:00 PM</span></span></li>
+          <li><span class="port-date">Jul 21</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 22</span><span class="port-name">Cozumel (Playa del Carmen), Mexico<span class="port-times">8:00 AM – 8:00 PM</span></span></li>
+          <li><span class="port-date">Jul 23</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 24</span><span class="port-name">Beach Club at Bimini, Bahamas<span class="port-times">9:00 AM – 7:00 PM</span></span></li>
+          <li><span class="port-date">Jul 25</span><span class="port-name">Miami, FL<span class="port-times">Arrive 6:30 AM</span></span></li>
+        </ul>
+        <div class="included-grid" style="margin-top:14px;">
+          <span class="included-chip">All dining included</span>
+          <span class="included-chip">Wi-Fi included</span>
+          <span class="included-chip">Gratuities included</span>
+          <span class="included-chip">Adults-only</span>
+          <span class="included-chip">Group fitness</span>
+          <span class="included-chip">Basic beverages</span>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;line-height:1.45;">Cozumel gets twelve full hours — long enough to dive the reef, eat tacos al pastor in the square, and still make it back unhurried. This is Virgin's best-value sailing in the window: $1,400 all-in for a solo traveler is genuinely hard to argue with. Taxes and fees included in price shown.</p>
+        <span class="deposit-note">Full payment due at time of booking</span>
+      </div>
+
+      <div class="sailing-options">
+        <div class="sailing-section-label">Choose Your Stateroom</div>
+        <div class="cabin-option">
+          <img class="cabin-img" src="https://s1.it.atcdn.net/wp-content/uploads/2023/06/IMG-CAB-solo-sea-view-architectural-interior-main-v1-01-9459-UNCROPPED.jpg" alt="Solo Insider cabin on Resilient Lady" loading="lazy">
+          <div class="cabin-select-row">
+            <input type="radio" name="sailingChoice" id="B-cabin1" value="B|Solo Insider|1400|0" onclick="setTimeout(updateTotal,0)">
+            <div>
+              <label for="B-cabin1" class="cabin-label">Solo Insider</label>
+              <div class="cabin-price">$1,400</div>
+              <div class="cabin-desc">Same category as Sailing A — purpose-built solo stateroom, full-size bed, sea-view window. Price includes taxes and fees ($67 included). Best total value of the five sailings.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- SAILING C: Virgin Voyages Jul 25  -->
+  <!-- ══════════════════════════════════ -->
+  <div class="sailing-card" id="card-C">
+    <div class="sailing-header">
+      <div>
+        <span class="sailing-line-badge badge-virgin">Virgin Voyages</span>
+        <div class="sailing-name">Resilient Lady — Grand Turk &amp; Bimini</div>
+        <div class="sailing-dates">July 25 – 30, 2026 &nbsp;·&nbsp; 5 Nights &nbsp;·&nbsp; Roundtrip Miami</div>
+      </div>
+      <div class="sailing-price-badge">
+        <div class="sailing-price-from">From</div>
+        <div class="sailing-price-num" id="priceC">$2,050</div>
+      </div>
+    </div>
+
+    <div class="sailing-body">
+      <div class="sailing-itinerary">
+        <div class="sailing-section-label">Itinerary</div>
+        <ul class="port-list">
+          <li><span class="port-date">Jul 25</span><span class="port-name">Miami, FL<span class="port-times">Depart 5:00 PM</span></span></li>
+          <li><span class="port-date">Jul 26</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 27</span><span class="port-name">Grand Turk, Turks &amp; Caicos<span class="port-times">8:00 AM – 5:00 PM</span></span></li>
+          <li><span class="port-date">Jul 28</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 29</span><span class="port-name">Beach Club at Bimini, Bahamas<span class="port-times">9:00 AM – 7:00 PM</span></span></li>
+          <li><span class="port-date">Jul 30</span><span class="port-name">Miami, FL<span class="port-times">Arrive 6:30 AM</span></span></li>
+        </ul>
+        <div class="included-grid" style="margin-top:14px;">
+          <span class="included-chip">All dining included</span>
+          <span class="included-chip">Wi-Fi included</span>
+          <span class="included-chip">Gratuities included</span>
+          <span class="included-chip">Adults-only</span>
+          <span class="included-chip">Group fitness</span>
+          <span class="included-chip">Basic beverages</span>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;line-height:1.45;">Grand Turk is the unhurried one — a small island with a main street, pelicans on the dock, and water the color of a swimming pool. Two beach days back-to-back (Grand Turk then Bimini) make this the most relaxed itinerary of the five. Premium price reflects it, but it buys you the most time off the ship. Taxes and fees included.</p>
+        <span class="deposit-note">Full payment due at time of booking</span>
+      </div>
+
+      <div class="sailing-options">
+        <div class="sailing-section-label">Choose Your Stateroom</div>
+        <div class="cabin-option">
+          <img class="cabin-img" src="https://s1.it.atcdn.net/wp-content/uploads/2023/06/IMG-CAB-solo-sea-view-architectural-interior-main-v1-01-9459-UNCROPPED.jpg" alt="Solo Insider cabin on Resilient Lady" loading="lazy">
+          <div class="cabin-select-row">
+            <input type="radio" name="sailingChoice" id="C-cabin1" value="C|Solo Insider|2050|0" onclick="setTimeout(updateTotal,0)">
+            <div>
+              <label for="C-cabin1" class="cabin-label">Solo Insider</label>
+              <div class="cabin-price">$2,050</div>
+              <div class="cabin-desc">Same solo stateroom category — full-size bed, sea-view window, no single supplement. Price includes taxes and fees ($62 included). Highest-priced Virgin option; delivers the most port time in return.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- SAILING D: Royal Caribbean Jul 2  -->
+  <!-- ══════════════════════════════════ -->
+  <div class="sailing-card" id="card-D">
+    <div class="sailing-header">
+      <div>
+        <span class="sailing-line-badge badge-royal">Royal Caribbean</span>
+        <div class="sailing-name">Mariner of the Seas — Cozumel &amp; July 4th</div>
+        <div class="sailing-dates">July 2 – 6, 2026 &nbsp;·&nbsp; 4 Nights &nbsp;·&nbsp; Roundtrip Galveston</div>
+      </div>
+      <div class="sailing-price-badge">
+        <div class="sailing-price-from">From</div>
+        <div class="sailing-price-num" id="priceD">$1,286</div>
+      </div>
+    </div>
+
+    <div class="sailing-body">
+      <div class="sailing-itinerary">
+        <div class="sailing-section-label">Itinerary</div>
+        <ul class="port-list">
+          <li><span class="port-date">Jul 2</span><span class="port-name">Galveston, TX<span class="port-times">Depart 3:00 PM</span></span></li>
+          <li><span class="port-date">Jul 3</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 4</span><span class="port-name">Cozumel, Mexico<span class="port-times">7:00 AM – 5:00 PM</span></span></li>
+          <li><span class="port-date">Jul 5</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 6</span><span class="port-name">Galveston, TX<span class="port-times">Arrive 7:00 AM</span></span></li>
+        </ul>
+        <div class="included-grid" style="margin-top:14px;">
+          <span class="included-chip">Complimentary dining</span>
+          <span class="included-chip">Entertainment</span>
+          <span class="included-chip">Pools &amp; waterslides</span>
+          <span class="included-chip">Port taxes included</span>
+        </div>
+        <div class="included-grid">
+          <span class="notincluded-chip">Drinks extra</span>
+          <span class="notincluded-chip">Wi-Fi extra</span>
+          <span class="notincluded-chip">Gratuities extra</span>
+          <span class="notincluded-chip">Specialty dining extra</span>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;line-height:1.45;">Galveston departure means no flights — drive down, board, done. July 4th lands in Cozumel, which means a holiday at the reef or a table at a proper beach bar watching fireworks from the water. Short sailing, four nights, efficient use of PTO. Drinks, Wi-Fi, and gratuities are extra on Royal — factor those into your comparison.</p>
+        <span class="deposit-note">Full payment due at time of booking</span>
+      </div>
+
+      <div class="sailing-options">
+        <div class="sailing-section-label">Choose Your Stateroom</div>
+        <div class="cabin-option">
+          <img class="cabin-img" src="https://www.royalcaribbeanblog.com/sites/default/files/styles/mobile_1x/public/2022-04/mariner-cheap-inside-cabin.jpg.webp?itok=VL_YL3kn" alt="Interior cabin on Mariner of the Seas" loading="lazy" onerror="this.style.background='var(--pale-teal)';this.removeAttribute('src')">
+          <div class="cabin-select-row">
+            <input type="radio" name="sailingChoice" id="D-cabin1" value="D|Interior Guarantee|1286.03|0" onclick="setTimeout(updateTotal,0)">
+            <div>
+              <label for="D-cabin1" class="cabin-label">Interior Guarantee</label>
+              <div class="cabin-price">$1,286.03</div>
+              <div class="cabin-desc">Guaranteed interior room — exact assignment made closer to sailing. Royal's most budget-friendly category; no window, full access to all ship amenities. Taxes &amp; fees ($112.03) included in price.</div>
+            </div>
+          </div>
+          <div class="addon-row" style="margin-top:10px;">
+            <input type="checkbox" id="D-addon-grat" onclick="setTimeout(updateTotal,0)" data-value="74" data-label="Pre-paid Gratuities">
+            <label for="D-addon-grat" style="font-size:0.86rem;color:var(--text);">Add pre-paid gratuities — <strong>$74.00</strong> &nbsp;<span style="color:var(--text-muted);font-size:0.8rem;">(optional — locks in today's rate)</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- SAILING E: Royal Caribbean Jul 20 -->
+  <!-- ══════════════════════════════════ -->
+  <div class="sailing-card" id="card-E">
+    <div class="sailing-header">
+      <div>
+        <span class="sailing-line-badge badge-royal">Royal Caribbean</span>
+        <div class="sailing-name">Mariner of the Seas — Costa Maya &amp; Cozumel</div>
+        <div class="sailing-dates">July 20 – 25, 2026 &nbsp;·&nbsp; 5 Nights &nbsp;·&nbsp; Roundtrip Galveston</div>
+      </div>
+      <div class="sailing-price-badge">
+        <div class="sailing-price-from">From</div>
+        <div class="sailing-price-num" id="priceE">$1,283</div>
+      </div>
+    </div>
+
+    <div class="sailing-body">
+      <div class="sailing-itinerary">
+        <div class="sailing-section-label">Itinerary</div>
+        <ul class="port-list">
+          <li><span class="port-date">Jul 20</span><span class="port-name">Galveston, TX<span class="port-times">Depart 3:00 PM</span></span></li>
+          <li><span class="port-date">Jul 21</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 22</span><span class="port-name">Puerto Costa Maya, Mexico<span class="port-times">11:59 AM – 7:00 PM</span></span></li>
+          <li><span class="port-date">Jul 23</span><span class="port-name">Cozumel, Mexico<span class="port-times">7:00 AM – 5:00 PM</span></span></li>
+          <li><span class="port-date">Jul 24</span><span class="port-name">At Sea</span></li>
+          <li><span class="port-date">Jul 25</span><span class="port-name">Galveston, TX<span class="port-times">Arrive 7:00 AM</span></span></li>
+        </ul>
+        <div class="included-grid" style="margin-top:14px;">
+          <span class="included-chip">Complimentary dining</span>
+          <span class="included-chip">Entertainment</span>
+          <span class="included-chip">Pools &amp; waterslides</span>
+          <span class="included-chip">Port taxes included</span>
+        </div>
+        <div class="included-grid">
+          <span class="notincluded-chip">Drinks extra</span>
+          <span class="notincluded-chip">Wi-Fi extra</span>
+          <span class="notincluded-chip">Gratuities extra</span>
+          <span class="notincluded-chip">Specialty dining extra</span>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;line-height:1.45;">Two Mexican ports back-to-back: Costa Maya in the afternoon (ruins nearby, good beach bars), then a full ten hours in Cozumel the next morning. Galveston departure, five nights, two countries. This is the longest Galveston option and the best port variety if Mexico is your focus. Drinks, Wi-Fi, and gratuities are added on top — budget accordingly.</p>
+        <span class="deposit-note">Full payment due at time of booking</span>
+      </div>
+
+      <div class="sailing-options">
+        <div class="sailing-section-label">Choose Your Stateroom</div>
+        <div class="cabin-option">
+          <img class="cabin-img" src="https://www.royalcaribbeanblog.com/sites/default/files/styles/mobile_1x/public/2022-04/mariner-cheap-inside-cabin.jpg.webp?itok=VL_YL3kn" alt="Interior cabin on Mariner of the Seas" loading="lazy" onerror="this.style.background='var(--pale-teal)';this.removeAttribute('src')">
+          <div class="cabin-select-row">
+            <input type="radio" name="sailingChoice" id="E-cabin1" value="E|Interior Guarantee|1282.67|0" onclick="setTimeout(updateTotal,0)">
+            <div>
+              <label for="E-cabin1" class="cabin-label">Interior Guarantee</label>
+              <div class="cabin-price">$1,282.67</div>
+              <div class="cabin-desc">Guaranteed interior; specific cabin assigned closer to sailing. Taxes &amp; fees ($127.67) included. Virtually the same price as Sailing D but adds a fifth night and a second port.</div>
+            </div>
+          </div>
+          <div class="addon-row" style="margin-top:10px;">
+            <input type="checkbox" id="E-addon-grat" onclick="setTimeout(updateTotal,0)" data-value="92.50" data-label="Pre-paid Gratuities">
+            <label for="E-addon-grat" style="font-size:0.86rem;color:var(--text);">Add pre-paid gratuities — <strong>$92.50</strong> &nbsp;<span style="color:var(--text-muted);font-size:0.8rem;">(optional — locks in today's rate)</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING NOTE (near running total) -->
+  <div class="pricing-note">
+    <strong>On pricing:</strong> Individual components in your quote are priced at publicly available rates — and in many cases lower than what you'd find booking directly. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right sailing, operators we know, the trip app, and a human who answers when something doesn't go to plan.
+  </div>
+
+  <!-- WHAT'S COMING NEXT CALLOUT -->
+  <div class="after-quote-callout">
+    <h3>What comes after this quote</h3>
+    <p>A destination guide built for your trip — PDF or interactive in-app, with links to every place we send you — a trip app where everything lives, and us when something goes sideways at midnight. You travel; we handle the rest.</p>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <div class="contact-section" id="contactForm">
+    <h2>Ready to move forward?</h2>
+    <p>Select a sailing above, then send Andrea a note below. She'll confirm availability and lock in your rate.</p>
+
+    <div class="form-card">
+      <div class="form-selection-summary" id="formSummaryDisplay">
+        <strong>Your selection:</strong> No sailing selected yet — choose one above and it will appear here.
+      </div>
+
+      <form id="quoteForm" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="access_key" value="74894b5d-f463-481b-b081-b874086b15fc">
+        <input type="hidden" name="subject" value="Quote Request — Belem Jacome — Cruise July 2026">
+        <input type="hidden" name="from_name" value="PMTP Quote Form">
+        <input type="hidden" id="hiddenSailing" name="Selected Sailing" value="">
+        <input type="hidden" id="hiddenCabin" name="Selected Cabin" value="">
+        <input type="hidden" id="hiddenAddons" name="Add-ons" value="">
+        <input type="hidden" id="hiddenTotal" name="Estimated Total" value="">
+        <input type="hidden" name="botcheck" value="" style="display:none;">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="clientName">Your name</label>
+            <input type="text" id="clientName" name="Name" value="Belem Jacome" required>
+          </div>
+          <div class="form-group">
+            <label for="clientEmail">Your email</label>
+            <input type="email" id="clientEmail" name="Email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="clientPhone">Your phone (optional)</label>
+            <input type="tel" id="clientPhone" name="Phone" placeholder="(000) 000-0000">
+          </div>
+          <div class="form-group">
+            <label for="clientTravelers">Number of travelers</label>
+            <input type="text" id="clientTravelers" name="Travelers" value="1 adult">
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:16px;">
+          <label for="clientMessage">Questions or notes for Andrea</label>
+          <textarea id="clientMessage" name="Message" placeholder="Any questions, flexibility on dates, specific preferences — share them here."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send My Selections to Andrea →</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        ✓ Got it, Belem! Andrea will be in touch within one business day to confirm your sailing.
+      </div>
+      <div class="form-error" id="formError">
+        Something went wrong — please try again or email Andrea directly.
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main-wrap -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-name">Andrea Gunter</div>
+  <div>Point Me to Paradise Travel</div>
+  <div style="margin-top:6px;">
+    <a id="footerEmail" href="#">andrea@pointmetoparadise.com</a> &nbsp;·&nbsp; 409-789-3579
+  </div>
+  <div class="footer-fine">
+    Prices and availability are subject to change until time of booking.<br>
+    This quote was prepared exclusively for Belem Jacome.
+  </div>
+</footer>
+
+<script>
+  // ─── EMAIL ASSEMBLY (Cloudflare-safe) ───
+  (function() {
+    var user = 'andrea';
+    var domain = 'pointmetoparadise.com';
+    var addr = user + '@' + domain;
+    var mailto = 'mailto:' + addr;
+    var el1 = document.getElementById('footerEmail');
+    if (el1) { el1.href = mailto; el1.textContent = addr; }
+    var el2 = document.getElementById('headerEmail');
+    if (el2) { el2.href = mailto; el2.textContent = addr; }
+  })();
+
+  // ─── PRICING DATA ───
+  var sailingNames = {
+    'A': 'Sailing A — Resilient Lady: Bahamas & Dominican Republic (Jul 6–11)',
+    'B': 'Sailing B — Resilient Lady: Mexico & Bahamas (Jul 20–25)',
+    'C': 'Sailing C — Resilient Lady: Grand Turk & Bimini (Jul 25–30)',
+    'D': 'Sailing D — Mariner of the Seas: Cozumel July 4th (Jul 2–6)',
+    'E': 'Sailing E — Mariner of the Seas: Costa Maya & Cozumel (Jul 20–25)'
+  };
+
+  function updateTotal() {
+    var chosen = document.querySelector('input[name="sailingChoice"]:checked');
+    var totalEl = document.getElementById('totalDisplay');
+    var summaryEl = document.getElementById('formSummaryDisplay');
+
+    if (!chosen) {
+      totalEl.textContent = '— No sailing selected —';
+      summaryEl.innerHTML = '<strong>Your selection:</strong> No sailing selected yet — choose one above and it will appear here.';
+      document.getElementById('hiddenSailing').value = '';
+      document.getElementById('hiddenCabin').value = '';
+      document.getElementById('hiddenAddons').value = '';
+      document.getElementById('hiddenTotal').value = '';
+      // Clear card highlights
+      document.querySelectorAll('.sailing-card').forEach(function(c){ c.classList.remove('selected-card'); });
+      return;
+    }
+
+    var parts = chosen.value.split('|');
+    var sailingKey = parts[0];
+    var cabinName = parts[1];
+    var basePrice = parseFloat(parts[2]);
+
+    // Clear highlights, then highlight chosen
+    document.querySelectorAll('.sailing-card').forEach(function(c){ c.classList.remove('selected-card'); });
+    var card = document.getElementById('card-' + sailingKey);
+    if (card) card.classList.add('selected-card');
+
+    // Collect add-ons for this sailing
+    var addons = [];
+    var addonTotal = 0;
+    var addonBoxes = card ? card.querySelectorAll('input[type="checkbox"]') : [];
+    addonBoxes.forEach(function(box) {
+      if (box.checked) {
+        var val = parseFloat(box.getAttribute('data-value'));
+        var lbl = box.getAttribute('data-label');
+        addonTotal += val;
+        addons.push(lbl + ' (+$' + val.toFixed(2) + ')');
+      }
+    });
+
+    var grandTotal = basePrice + addonTotal;
+
+    // Format
+    var fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    totalEl.textContent = 'Est. ' + fmt.format(grandTotal);
+
+    var addonStr = addons.length ? addons.join(', ') : 'None';
+    var sailingLabel = sailingNames[sailingKey] || sailingKey;
+    summaryEl.innerHTML = '<strong>Your selection:</strong> ' + sailingLabel +
+      '<br><strong>Cabin:</strong> ' + cabinName +
+      '<br><strong>Base fare:</strong> ' + fmt.format(basePrice) +
+      (addonTotal > 0 ? '<br><strong>Add-ons:</strong> ' + addonStr : '') +
+      '<br><strong>Estimated total:</strong> ' + fmt.format(grandTotal);
+
+    document.getElementById('hiddenSailing').value = sailingLabel;
+    document.getElementById('hiddenCabin').value = cabinName;
+    document.getElementById('hiddenAddons').value = addonStr;
+    document.getElementById('hiddenTotal').value = fmt.format(grandTotal);
+  }
+
+  // ─── FORM SUBMIT ───
+  async function handleSubmit(e) {
+    e.preventDefault();
+    var btn = document.querySelector('.submit-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    document.getElementById('formError').style.display = 'none';
+
+    try {
+      var formData = new FormData(document.getElementById('quoteForm'));
+      var response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      var data = await response.json();
+      if (data.success) {
+        document.getElementById('quoteForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch(err) {
+      document.getElementById('formError').style.display = 'block';
+      btn.textContent = 'Send My Selections to Andrea →';
+      btn.disabled = false;
+    }
+  }
+
+  // Init
+  updateTotal();
+</script>
+
+</body>
+</html>
